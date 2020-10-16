@@ -1,0 +1,31 @@
+{
+  "resourceType" : "List",
+  "id" : "b1f72528-5501-4a6c-a5f3-9b86ec84264b",
+  "meta" : {
+    "versionId" : "1",
+    "lastUpdated" : "2020-03-17T13:16:44.783+00:00",
+    "source" : "#yOutpJJh2o02507g"
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: b1f72528-5501-4a6c-a5f3-9b86ec84264b</p><p><b>meta</b>: </p><p><b>status</b>: current</p><p><b>title</b>: Food Insecurity (Hunger Vital Sign) Questionnaire Patient List</p><blockquote><p><b>entry</b></p><p><b>item</b>: <a href=\"Patient/af0278c6-fafa-47c3-99aa-df693da905e0\">Newman, Alice</a></p></blockquote><blockquote><p><b>entry</b></p><p><b>item</b>: <a href=\"Patient/69c58000-bcb9-411e-a888-c4b67d0fe409\">Bates, Jeremy</a></p></blockquote></div>"
+  },
+  "status" : "current",
+  "title" : "Food Insecurity (Hunger Vital Sign) Questionnaire Patient List",
+  "entry" : [
+    {
+      "item" : {
+        "reference" : "Patient/af0278c6-fafa-47c3-99aa-df693da905e0",
+        "type" : "Patient",
+        "display" : "Newman, Alice"
+      }
+    },
+    {
+      "item" : {
+        "reference" : "Patient/69c58000-bcb9-411e-a888-c4b67d0fe409",
+        "type" : "Patient",
+        "display" : "Bates, Jeremy"
+      }
+    }
+  ]
+}

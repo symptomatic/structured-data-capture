@@ -1,0 +1,53 @@
+{
+  "resourceType" : "Procedure",
+  "id" : "SDOHCC-Procedure-FoodInsecurity-1-Example-1",
+  "meta" : {
+    "versionId" : "2",
+    "lastUpdated" : "2020-03-12T20:51:47.897+00:00",
+    "source" : "#BaLaHZZdDZexgAEA"
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: SDOHCC-Procedure-FoodInsecurity-1-Example-1</p><p><b>meta</b>: </p><p><b>status</b>: completed</p><p><b>category</b>: Social service procedure <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/ValueSet/procedure-category code '410606002' = '410606002', given as 'Social service procedure (procedure)'})</span></p><p><b>code</b>: Assistance with application for Supplemental Nutrition Assistance Program <span style=\"background: LightGoldenRodYellow\">(Details : {SNOMED CT code 'sdohcc-sctt-111000243109' = 'sdohcc-sctt-111000243109', given as 'Assistance with application for Supplemental Nutrition Assistance Program (procedure)'})</span></p><p><b>subject</b>: <a href=\"Patient/patientExample1\">Patient/patientExample1</a></p><p><b>encounter</b>: <a href=\"Encounter/encounterExample2\">Encounter/encounterExample2</a></p><p><b>performed</b>: Jul 30, 2012, 12:00:00 AM</p><h3>Performers</h3><table class=\"grid\"><tr><td>-</td><td><b>Actor</b></td></tr><tr><td>*</td><td><a href=\"Practitioner/practitionerExample2\">Practitioner/practitionerExample2</a></td></tr></table><p><b>reasonReference</b>: <a href=\"Procedure-SDOHCC-Procedure-FoodInsecurity-1-Example-1.html\">Generated Summary: id: SDOHCC-Condition-FoodInsecurity-1-Example-1; <span title=\"Codes: {http://terminology.hl7.org/CodeSystem/condition-clinical inactive}\">Inactive</span>; <span title=\"Codes: {http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span>; <span title=\"Codes: {http://terminology.hl7.org/CodeSystem/condition-category health-concern}\">Health Concern</span>; <span title=\"Codes: {http://snomed.info/sct 733423003}\">Food insecurity</span>; onset: May 1, 2012, 12:00:00 AM; abatement: Oct 27, 2012, 12:00:00 AM</a></p></div>"
+  },
+  "status" : "completed",
+  "category" : {
+    "coding" : [
+      {
+        "system" : "http://hl7.org/fhir/ValueSet/procedure-category",
+        "code" : "410606002",
+        "display" : "Social service procedure (procedure)"
+      }
+    ],
+    "text" : "Social service procedure"
+  },
+  "code" : {
+    "coding" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "code" : "sdohcc-sctt-111000243109",
+        "display" : "Assistance with application for Supplemental Nutrition Assistance Program (procedure)"
+      }
+    ],
+    "text" : "Assistance with application for Supplemental Nutrition Assistance Program"
+  },
+  "subject" : {
+    "reference" : "Patient/patientExample1"
+  },
+  "encounter" : {
+    "reference" : "Encounter/encounterExample2"
+  },
+  "performedDateTime" : "2012-07-30",
+  "performer" : [
+    {
+      "actor" : {
+        "reference" : "Practitioner/practitionerExample2"
+      }
+    }
+  ],
+  "reasonReference" : [
+    {
+      "reference" : "Condition/SDOHCC-Condition-FoodInsecurity-1-Example-1"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "resourceType": "Bundle",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:78492c95-b842-493b-82bc-29dbebf410c0",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "78492c95-b842-493b-82bc-29dbebf410c0",
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/us/sdoh-cc/CodeSystem/sdohcc-temporary-codes",
+          "code": "sdohcc-hl7t-screening-response",
+          "display": "Sreening Response Message"
+        },
+        "destination": [
+          {
+            "endpoint": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+          }
+        ],
+        "focus": [
+          {
+            "reference": "urn:uuid:98af1789-911a-4441-ab36-ebe0f991d286",
+            "display": "Questionnaire sent out to be completed - 5/5 A"
+          },
+          {
+            "reference": "urn:uuid:e679826e-d962-40f5-b689-4e97d57ad3a2",
+            "display": "Consent"
+          },
+          {
+            "reference": "urn:uuid:cd5ed64f-25be-487d-9be8-a39c9b146f2f",
+            "display": "QuestionnaireResponse"
+          },
+          {
+            "reference": "urn:uuid:2ccb2478-94e0-49dd-a07e-cb5dc4de4d95",
+            "display": "Communication"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d5063699-dee1-4be7-9037-faf5782417d5",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "d5063699-dee1-4be7-9037-faf5782417d5",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2020-04-17T21:59:23.000-04:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Alice <b>NEWMAN </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>3</td></tr><tr><td>Address</td><td><span>1357 Amber Dr </span><br/><span>Beaverton </span><span>OR </span></td></tr><tr><td>Date of birth</td><td><span>01 May 1970</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "https://www.maxmddirect.com/fhir/identifier/sdc/userId",
+            "value": "3"
+          },
+          {
+            "system": "urn:oid:1.3.6.1.4.1.41179.2.4",
+            "value": "anewman@patient.direct.myeval.md"
+          }
+        ],
+        "name": [
+          {
+            "family": "Newman",
+            "given": [
+              "Alice"
+            ]
+          }
+        ],
+        "birthDate": "1970-05-01",
+        "address": [
+          {
+            "line": [
+              "1357 Amber Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97006"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:98af1789-911a-4441-ab36-ebe0f991d286",
+      "resource": {
+        "resourceType": "Task",
+        "id": "98af1789-911a-4441-ab36-ebe0f991d286",
+        "meta": {
+          "versionId": "3",
+          "lastUpdated": "2020-05-05T15:41:20.000-04:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Task including Questionnaire to be completed.</p> </div>"
+        },
+        "identifier": [
+          {
+            "system": "https://www.maxmddirect.com/fhir/identifier/sdc/task",
+            "value": "task-1588707616"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "CommunicationRequest/e4827651-428f-46ab-a391-0466670818a2",
+            "display": "CommunicationRequest"
+          }
+        ],
+        "status": "in-progress",
+        "intent": "instance-order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://grv.hl7t-tasks.tmp/grv-hl7t-tasks",
+              "code": "grv-hl7-tasks-20191209143500ET",
+              "display": "screen-pts"
+            }
+          ],
+          "text": "Screen Patients"
+        },
+        "description": "Questionnaire sent out to be completed - 5/5 A",
+        "focus": {
+          "reference": "Questionnaire/e1b58149-5da1-4e6d-a414-7dfc9befe432",
+          "display": "Food Insecurity"
+        },
+        "for": {
+          "reference": "List/3661ed8c-f418-499c-8070-8aff59462a70",
+          "display": "Food Insecurity Questionnaire Patient List"
+        },
+        "executionPeriod": {
+          "start": "2020-05-05",
+          "end": "2020-05-25"
+        },
+        "authoredOn": "2020-05-05T14:40:16-05:00",
+        "lastModified": "2020-05-05T15:40:32-04:00",
+        "requester": {
+          "reference": "Organization/f84115e9-6e5b-4c0b-8947-f1296da58a90",
+          "display": "PMEHR Demo"
+        },
+        "note": [
+          {
+            "time": "2020-05-05T15:40:31-04:00",
+            "text": "Sent Questionnaire to patient: Newman, Alice"
+          },
+          {
+            "time": "2020-05-05T15:40:32-04:00",
+            "text": "Sent Questionnaire to patient: Smith, John"
+          },
+          {
+            "time": "2020-05-05T15:40:34-04:00",
+            "text": "Send Status update to remote FHIR server https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+          },
+          {
+            "time": "2020-05-05T15:41:12-04:00",
+            "text": "Patient Smith, John rejected the consent"
+          },
+          {
+            "time": "2020-05-05T15:41:20-04:00",
+            "text": "Sent response to remote FHIR server https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+          },
+          {
+            "time": "2020-05-05T15:42:49-04:00",
+            "text": "Patient Newman, Alice rejected the consent"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd5ed64f-25be-487d-9be8-a39c9b146f2f",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "cd5ed64f-25be-487d-9be8-a39c9b146f2f",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-05-05T15:42:44.000-04:00"
+        },
+        "questionnaire": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4/Questionnaire/17d3c570-28de-4aa3-a135-e35d0932a4ec",
+        "status": "stopped",
+        "subject": {
+          "reference": "urn:uuid:d5063699-dee1-4be7-9037-faf5782417d5",
+          "display": "Alice Newman"
+        },
+        "source": {
+          "reference": "urn:uuid:d5063699-dee1-4be7-9037-faf5782417d5",
+          "display": "Alice Newman"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e679826e-d962-40f5-b689-4e97d57ad3a2",
+      "resource": {
+        "resourceType": "Consent",
+        "id": "e679826e-d962-40f5-b689-4e97d57ad3a2",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-05-05T15:42:44.000-04:00"
+        },
+        "status": "rejected",
+        "scope": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+              "code": "patient-privacy",
+              "display": "Privacy Consent"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "ICOL",
+                "display": "information collection"
+              }
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:d5063699-dee1-4be7-9037-faf5782417d5",
+          "display": "Alice Newman"
+        },
+        "dateTime": "2020-05-05T15:42:44-04:00",
+        "sourceReference": {
+          "reference": "urn:uuid:cd5ed64f-25be-487d-9be8-a39c9b146f2f"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2ccb2478-94e0-49dd-a07e-cb5dc4de4d95",
+      "resource": {
+        "resourceType": "Communication",
+        "id": "2ccb2478-94e0-49dd-a07e-cb5dc4de4d95",
+        "basedOn": [
+          {
+            "reference": "CommunicationRequest/a1df524a-b631-4b31-b5a8-7c33799000a0"
+          }
+        ],
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://www.maxmddirect.com/fhir/CodeSystem/communication-category",
+                "code": "Solicated-Screen-Response"
+              }
+            ],
+            "text": "Solicated Communication"
+          }
+        ]
+      }
+    }
+  ]
+}

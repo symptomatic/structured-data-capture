@@ -1,0 +1,53 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "basedOn": [
+          {
+            "reference": "CommunicationRequest?identifier=request-20200218154412-220t7e66rjptstodlp0tjsor05"
+          }
+        ],
+        "resourceType": "Communication",
+        "text": {
+          "status": "generated",
+          "div": "Attachment which is solicited"
+        },
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http:\/\/acme.org\/messagetypes",
+                "code": "SolicatedCommunication"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "sent": "2020-02-18T03:45:06",
+        "payload": [
+          {
+            "extension": [
+              {
+                "url": "http:\/\/hl7.org\/fhir\/us\/davinci-cdex\/StructureDefinition\/cdex-payload-query-string",
+                "valueString": "Composition?type=88121-9&_lastUpdated=ge2020-02-15"
+              }
+            ],
+            "contentAttachment": {
+              "contentType": "application\/json",
+              "data": "ewogICJyZXNvdXJjZVR5cGUiOiAiQnVuZGxlIiwKICAiaWQiOiAiMDY3Y2MzMDMtNmI1Ni00Y2FkLThjZjktOWZhNDIyMzE2MWYxIiwKICAibWV0YSI6IHsKICAgICJsYXN0VXBkYXRlZCI6ICIyMDIwLTA0LTE5VDIzOjMxOjQ2LjA0OC0wNTowMCIKICB9LAogICJ0eXBlIjogInNlYXJjaHNldCIsCiAgInRvdGFsIjogMSwKICAibGluayI6IFsKICAgIHsKICAgICAgInJlbGF0aW9uIjogInNlbGYiLAogICAgICAidXJsIjogImh0dHBzOi8vZWhyLXNhbmRib3guZGlyZWN0bWRlbWFpbC5jb206ODQ0My9maGlyL2Jhc2VSNC9Db21wb3NpdGlvbj9fZm9ybWF0PWpzb24mX2xhc3RVcGRhdGVkPWdlMjAyMC0wMi0xNSZwYXRpZW50PWFmMDI3OGM2LWZhZmEtNDdjMy05OWFhLWRmNjkzZGE5MDVlMCZ0eXBlPTg4MTIxLTkiCiAgICB9CiAgXSwKICAiZW50cnkiOiBbCiAgICB7CiAgICAgICJmdWxsVXJsIjogImh0dHBzOi8vZWhyLXNhbmRib3guZGlyZWN0bWRlbWFpbC5jb206ODQ0My9maGlyL2Jhc2VSNC9Db21wb3NpdGlvbi9iYWQxZGM0Ni0zOWNiLTRiODUtYmFlYy1iZmEzZTIxNDIyMTUiLAogICAgICAicmVzb3VyY2UiOiB7CiAgICAgICAgInJlc291cmNlVHlwZSI6ICJDb21wb3NpdGlvbiIsCiAgICAgICAgImlkIjogImJhZDFkYzQ2LTM5Y2ItNGI4NS1iYWVjLWJmYTNlMjE0MjIxNSIsCiAgICAgICAgIm1ldGEiOiB7CiAgICAgICAgICAidmVyc2lvbklkIjogIjEiLAogICAgICAgICAgImxhc3RVcGRhdGVkIjogIjIwMjAtMDItMThUMTU6Mjc6MDYuMDAwLTA2OjAwIgogICAgICAgIH0sCiAgICAgICAgInR5cGUiOiB7CiAgICAgICAgICAiY29kaW5nIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgInN5c3RlbSI6ICJodHRwOi8vbG9pbmMub3JnIiwKICAgICAgICAgICAgICAiY29kZSI6ICI4ODEyMS05IiwKICAgICAgICAgICAgICAiZGlzcGxheSI6ICJIdW5nZXIgVml0YWwgU2lnbiBbSFZTXSIKICAgICAgICAgICAgfQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgInN1YmplY3QiOiB7CiAgICAgICAgICAicmVmZXJlbmNlIjogIlBhdGllbnQvYWYwMjc4YzYtZmFmYS00N2MzLTk5YWEtZGY2OTNkYTkwNWUwIgogICAgICAgIH0sCiAgICAgICAgInRpdGxlIjogIkZvb2QgSW5zZWN1cml0eSAoSHVuZ2VyIFZpdGFsIFNpZ24pIiwKICAgICAgICAic2VjdGlvbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgInRpdGxlIjogIlNvY2lhbCBIaXN0b3J5IiwKICAgICAgICAgICAgImNvZGUiOiB7CiAgICAgICAgICAgICAgImNvZGluZyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgInN5c3RlbSI6ICJodHRwOi8vbG9pbmMub3JnIiwKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiMTAyMTAtMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0ZXh0IjogIkdlbmVyYWwgc3RhdHVzIgogICAgICAgICAgICB9LAogICAgICAgICAgICAidGV4dCI6IHsKICAgICAgICAgICAgICAic3RhdHVzIjogImdlbmVyYXRlZCIsCiAgICAgICAgICAgICAgImRpdiI6ICI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPiA8cD5Db25zZW50IDwvcD48cD48ZGl2PiBQTUVIUiBEZW1vIGhhcyBwZXJtaXNzaW9uIHRvIGNvbGxlY3QgYW5kIHNoYXJlIHRoZSBTRE9IIFNjcmVlbmluZyBpbmZvcm1hdGlvbiBnYXRoZXJlZCBieSB0aGlzIHF1ZXN0aW9ubmFpcmUgd2l0aCB0aGUgb3JnYW5pemF0aW9uIGluaXRpYXRpbmcgdGhlIHNjcmVlbmluZyByZXF1ZXN0LlxuICAgIFRoZSBpbmZvcm1hdGlvbiBtYXkgYmUgdXNlZCBmb3IgdHJlYXRtZW50LCBwYXltZW50LCBhbmQgb3BlcmF0aW9ucyBpbiBzdXBwb3J0IG9mIGNhcmUgYmVpbmcgZGVsaXZlcmVkIGZvciB0aGlzIHBhdGllbnQuIDwvZGl2PjwvcD4gPHA+IEZvb2QgSW5zZWN1cml0eSAtIFF1ZXN0aW9ubmFpcmUgUmVzcG9uc2UgPC9wPiA8dGFibGU+IDx0Ym9keT48Y2FwdGlvbj4gSHVuZ2VyIFZpdGFsIFNpZ24gW0hWU10gPC9jYXB0aW9uPiA8dGFibGU+IDxib2R5PiA8dHI+IDx0aD4gV2l0aGluIHRoZSBwYXN0IDEyTW8gd2Ugd29ycmllZCB3aGV0aGVyIG91ciBmb29kIHdvdWxkIHJ1biBvdXQgYmVmb3JlIHdlIGdvdCBtb25leSB0byBidXkgbW9yZSA8L3RoPiA8dGQ+IE5ldmVyIHRydWUgPC90ZD4gPC90cj48dHI+IDx0aD4gV2l0aGluIHRoZSBwYXN0IDEyTW8gdGhlIGZvb2Qgd2UgYm91Z2h0IGp1c3QgZGlkbid0IGxhc3QgYW5kIHdlIGRpZG4ndCBoYXZlIG1vbmV5IHRvIGdldCBtb3JlIDwvdGg+IDx0ZD4gRG9uJ3Qga25vdy9yZWZ1c2VkIDwvdGQ+IDwvdHI+PC9ib2R5PiA8L3RhYmxlPiA8L3Rib2R5PiA8L3RhYmxlPjwvZGl2PiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVudHJ5IjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJyZWZlcmVuY2UiOiAiQ29uc2VudC80ODgwNzMwYS1iZDYwLTRkMzEtOGJiNy04Y2Y5NTMzYTg3MWIiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAicmVmZXJlbmNlIjogIlF1ZXN0aW9ubmFpcmVSZXNwb25zZS9jZjJiMGIwYi00MjMzLTQwZDQtODhmMi05ZTk3NjhjYmJlNjQiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdCiAgICAgICAgICB9CiAgICAgICAgXQogICAgICB9LAogICAgICAic2VhcmNoIjogewogICAgICAgICJtb2RlIjogIm1hdGNoIgogICAgICB9LAogICAgICAicmVzcG9uc2UiOiB7CiAgICAgICAgInN0YXR1cyI6ICIyMDEgQ3JlYXRlZCIsCiAgICAgICAgImV0YWciOiAiVy9cIjFcIiIKICAgICAgfQogICAgfQogIF0KfQ=="
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Communication"
+      }
+    }
+  ]
+}

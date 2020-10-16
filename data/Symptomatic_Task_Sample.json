@@ -1,0 +1,45 @@
+{
+  "_id": "Q4ypdqhpKddXnH5L3",
+  "resourceType": "Task",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Task including Questionnaire to be completed.</p> </div>"
+  },
+  "identifier": [
+    {
+      "system": "https://www.maxmddirect.com/fhir/identifier/sdc/task",
+      "value": "task-1583527207"
+    }
+  ],
+  "status": "requested",
+  "intent": "instance-order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://grv.hl7t-tasks.tmp/grv-hl7t-tasks",
+        "code": "grv-hl7-tasks-20191209143500ET",
+        "display": "screen-pts"
+      }
+    ],
+    "text": "Screen Patients"
+  },
+  "description": "Questionnaire sent out to be completed - 3/6",
+  "focus": {
+    "reference": "urn:uuid:17d3c570-28de-4aa3-a135-e35d0932a4ec",
+    "display": "Food Insecurity (Hunger Vital Sign)"
+  },
+  "for": {
+    "reference": "urn:uuid:id-list-20200306144007-5e62b527068d8",
+    "display": "Food Insecurity (Hunger Vital Sign) Questionnaire Patient List"
+  },
+  "executionPeriod": {
+    "start": "2020-03-06",
+    "end": "2020-03-26"
+  },
+  "authoredOn": "2020-03-06T14:40:07-06:00",
+  "requester": {
+    "reference": "urn:uuid:Ehr.Organization.Id",
+    "display": "PMEHR Demo"
+  },
+  "id": "Q4ypdqhpKddXnH5L3"
+}

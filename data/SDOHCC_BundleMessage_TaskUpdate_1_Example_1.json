@@ -1,0 +1,69 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "2367",
+  "meta" : {
+    "versionId" : "1",
+    "lastUpdated" : "2020-03-11T21:00:38.381+00:00",
+    "source" : "#vmNwi5fd4tNl32Ek"
+  },
+  "type" : "message",
+  "entry" : [
+    {
+      "fullUrl" : "urn:uuid:67439f21-eef4-44a8-b5ec-3519e57114bd",
+      "resource" : {
+        "resourceType" : "MessageHeader",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>event</b>: screening task response TaskStatusUpdate (Details: http://sdohcc-hl7t-messageHeader.tmp/sdohcc-screening_task code sdohcc-hl7t-screening-response-taskStatusUpdate = 'sdohcc-hl7t-screening-response-taskStatusUpdate', stated as 'screening task response TaskStatusUpdate')</p><h3>Destinations</h3><table class=\"grid\"><tr><td>-</td><td><b>Endpoint</b></td></tr><tr><td>*</td><td><a href=\"https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4\">https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4</a></td></tr></table><p><b>focus</b>: <a href=\"#urnuuide8013fc5-9424-49fa-9e78-1eaf47d6842c\">Questionnaire sent out to be completed - 3/4 . Generated Summary: unknown resource entry</a></p></div>"
+        },
+        "eventCoding" : {
+          "system" : "http://sdohcc-hl7t-messageHeader.tmp/sdohcc-screening_task",
+          "code" : "sdohcc-hl7t-screening-response-taskStatusUpdate",
+          "display" : "screening task response TaskStatusUpdate"
+        },
+        "destination" : [
+          {
+            "endpoint" : "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+          }
+        ],
+        "focus" : [
+          {
+            "reference" : "urn:uuid:e8013fc5-9424-49fa-9e78-1eaf47d6842c",
+            "display" : "Questionnaire sent out to be completed - 3/4 "
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:e8013fc5-9424-49fa-9e78-1eaf47d6842c",
+      "resource" : {
+        "resourceType" : "Task",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: task-1583338756, 84</p><p><b>status</b>: in-progress</p><p><b>note</b>: Sent Questionnaire to patient: Newman, Alice, Sent Questionnaire to patient: Bates, Jeremy</p></div>"
+        },
+        "identifier" : [
+          {
+            "system" : "https://www.maxmddirect.com/fhir/identifier/sdc/task",
+            "value" : "task-1583338756"
+          },
+          {
+            "system" : "https://www.maxmddirect.com/fhir/identifier/sdc/questionnaire/formId",
+            "value" : "84"
+          }
+        ],
+        "status" : "in-progress",
+        "note" : [
+          {
+            "time" : "2020-03-04T11:19:20-05:00",
+            "text" : "Sent Questionnaire to patient: Newman, Alice"
+          },
+          {
+            "time" : "2020-03-04T11:19:21-05:00",
+            "text" : "Sent Questionnaire to patient: Bates, Jeremy"
+          }
+        ]
+      }
+    }
+  ]
+}

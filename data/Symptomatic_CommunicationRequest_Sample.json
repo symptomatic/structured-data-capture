@@ -1,0 +1,32 @@
+{
+  "_id": "5t6smRaCvMoajbGJB",
+  "resourceType": "CommunicationRequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Task including Questionnaire to be completed.</p> </div>"
+  },
+  "identifier": [
+    {
+      "system": "https://www.maxmddirect.com/fhir/identifier/sdc/communicationRequest",
+      "value": "task-1583527207"
+    }
+  ],
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://www.maxmddirect.com/fhir/CodeSystem/communication-category",
+          "code": "ScreenRequest"
+        }
+      ],
+      "text": "ScreenRequest"
+    }
+  ],
+  "authoredOn": "2020-03-06T14:40:07-06:00",
+  "requester": {
+    "reference": "urn:uuid:Ehr.Organization.Id",
+    "display": "Symptomatic Gravity Module"
+  },
+  "id": "5t6smRaCvMoajbGJB"
+}

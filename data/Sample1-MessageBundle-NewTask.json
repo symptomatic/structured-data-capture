@@ -1,0 +1,734 @@
+{
+    "resourceType": "Bundle",
+    "type": "message",
+    "entry": [
+        {
+            "resource": {
+                "id": "id-mh-20200505074805-5eb16085448bf",
+                "resourceType": "MessageHeader",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Messaging including Questionnaire to be completed.</p> </div>"
+                },
+                "source": {
+                    "name": "MaxMD Demo EHR",
+                    "software": "MaxMD Demo EHR Dashboard",
+                    "version": "1.0.1",
+                    "endpoint": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+                },
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/us/sdoh-cc/CodeSystem/sdohcc-temporary-codes",
+                    "code": "sdohcc-hl7t-initiate-task",
+                    "display": "Initiate Task Message"
+                },
+                "focus": [
+                    {
+                        "reference": "urn:uuid:id-task-20200505074804-5eb1608488b1f",
+                        "display": "Questionnaire sent out to be completed - 5/5 A"
+                    },
+                    {
+                        "reference": "urn:uuid:id-communicationRequest-20200505074804-5eb1608488b47"
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:id-mh-20200505074805-5eb16085448bf"
+        },
+        {
+            "resource": {
+                "id": "id-list-20200505074805-5eb16085448f1",
+                "resourceType": "List",
+                "status": "current",
+                "mode": "snapshot",
+                "title": "Food Insecurity Questionnaire Patient List",
+                "entry": [
+                    {
+                        "item": {
+                            "reference": "urn:uuid:af0278c6-fafa-47c3-99aa-df693da905e0",
+                            "type": "Patient",
+                            "display": "Alice Newman"
+                        }
+                    },
+                    {
+                        "item": {
+                            "reference": "urn:uuid:e4b2dbce-0621-4229-a9ad-fcf88c247ce2",
+                            "type": "Patient",
+                            "display": "John Smith"
+                        }
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:id-list-20200505074805-5eb16085448f1"
+        },
+        {
+            "resource": {
+                "resourceType": "Questionnaire",
+                "id": "17d3c570-28de-4aa3-a135-e35d0932a4ec",
+                "meta": {
+                    "versionId": "6",
+                    "lastUpdated": "2020-04-17T14:10:18.000-05:00",
+                    "profile": [
+                        "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire-endpoint",
+                        "valueString": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                        "valueExpression": {
+                            "name": "worriedAnsCode",
+                            "language": "text/fhirpath",
+                            "expression": "%resource.item.where(linkId='/88122-7').answer.value.code"
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                        "valueExpression": {
+                            "name": "ranOutAnsCode",
+                            "language": "text/fhirpath",
+                            "expression": "%resource.item.where(linkId='/88123-5').answer.value.code"
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                        "valueExpression": {
+                            "name": "riskCodes",
+                            "language": "text/fhirpath",
+                            "expression": "'LA28397-0'.combine('LA6729-3')"
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                        "valueExpression": {
+                            "name": "riskStatus",
+                            "language": "text/fhirpath",
+                            "expression": "%riskCodes contains %worriedAnsCode or %riskCodes contains %ranOutAnsCode"
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                        "valueExpression": {
+                            "name": "answeredEitherQ",
+                            "language": "text/fhirpath",
+                            "expression": "%worriedAnsCode.exists() or %ranOutAnsCode.exists()"
+                        }
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "http://www.maxmddirect.com/hl7/fhir/grv-locali-screenings",
+                        "value": "local-ehr-65d310b8-6235-4f47-8d45"
+                    }
+                ],
+                "name": "Food Insecurity",
+                "title": "Food Insecurity (Hunger Vital Sign)",
+                "status": "active",
+                "subjectType": [
+                    "Patient"
+                ],
+                "date": "2019-12-03T16:09:54.445Z",
+                "effectivePeriod": {
+                    "start": "2019-12-12T11:52:01-05:00",
+                    "end": "2019-12-22T18:49:14-05:00"
+                },
+                "item": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                            "code": "drop-down",
+                                            "display": "Drop down"
+                                        }
+                                    ],
+                                    "text": "Drop down"
+                                }
+                            }
+                        ],
+                        "linkId": "/88122-7",
+                        "code": [
+                            {
+                                "code": "88122-7",
+                                "display": "Within the past 12Mo we worried whether our food would run out before we got money to buy more"
+                            }
+                        ],
+                        "text": "Within the past 12Mo we worried whether our food would run out before we got money to buy more",
+                        "type": "choice",
+                        "required": false,
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "code": "LA28397-0",
+                                    "display": "Often true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA6729-3",
+                                    "display": "Sometimes true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA28398-8",
+                                    "display": "Never true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA15775-2",
+                                    "display": "Don't know/refused"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                            "code": "drop-down",
+                                            "display": "Drop down"
+                                        }
+                                    ],
+                                    "text": "Drop down"
+                                }
+                            }
+                        ],
+                        "linkId": "/88123-5",
+                        "code": [
+                            {
+                                "code": "88123-5",
+                                "display": "Within the past 12Mo the food we bought just didn't last and we didn't have money to get more"
+                            }
+                        ],
+                        "text": "Within the past 12Mo the food we bought just didn't last and we didn't have money to get more",
+                        "type": "choice",
+                        "required": false,
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "code": "LA28397-0",
+                                    "display": "Often true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA6729-3",
+                                    "display": "Sometimes true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA28398-8",
+                                    "display": "Never true"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA15775-2",
+                                    "display": "Don't know/refused"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-observationLinkPeriod",
+                                "valueBoolean": true
+                            },
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                            "code": "drop-down",
+                                            "display": "Drop down"
+                                        }
+                                    ],
+                                    "text": "Drop down"
+                                }
+                            },
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                "valueExpression": {
+                                    "name": "thisItem",
+                                    "language": "text/fhirpath",
+                                    "expression": "%questionnaire.item.where(linkId = '/88124-3')"
+                                }
+                            },
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                "valueExpression": {
+                                    "name": "atRiskCoding",
+                                    "language": "text/fhirpath",
+                                    "expression": "%thisItem.answerOption.valueCoding.where(code='LA19952-3')"
+                                }
+                            },
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                "valueExpression": {
+                                    "name": "noRiskCoding",
+                                    "language": "text/fhirpath",
+                                    "expression": "%thisItem.answerOption.valueCoding.where(code='LA19983-8')"
+                                }
+                            },
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-calculatedExpression",
+                                "valueExpression": {
+                                    "description": "risk determination",
+                                    "language": "text/fhirpath",
+                                    "expression": "iif(%answeredEitherQ, iif(%riskStatus, %atRiskCoding, %noRiskCoding), {})"
+                                }
+                            }
+                        ],
+                        "linkId": "/88124-3",
+                        "code": [
+                            {
+                                "code": "88124-3",
+                                "display": "Food insecurity risk"
+                            }
+                        ],
+                        "text": "Food insecurity risk",
+                        "type": "choice",
+                        "required": false,
+                        "readOnly": true,
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "code": "LA19952-3",
+                                    "display": "At risk"
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "code": "LA19983-8",
+                                    "display": "No risk"
+                                }
+                            }
+                        ],
+                        "item": [
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                        "valueCodeableConcept": {
+                                            "coding": [
+                                                {
+                                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                    "code": "help",
+                                                    "display": "Help-Button"
+                                                }
+                                            ],
+                                            "text": "Help-Button"
+                                        }
+                                    }
+                                ],
+                                "linkId": "/88124-3-help",
+                                "text": "An answer of \"often true\" or \"sometimes true\" to either or both of the Hunger Vital Sign\u2122 questions identifies a patient as at risk for food insecurity (FI).",
+                                "type": "display"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:17d3c570-28de-4aa3-a135-e35d0932a4ec"
+        },
+        {
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "Ehr.Endpoint.Id",
+                "identifier": [
+                    {
+                        "system": "https://www.maxmddirect.com/fhir/identifier",
+                        "value": "MaxMDDemoEhrEndpoint-local"
+                    }
+                ],
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "name": "Payer FHIR Endpoint",
+                "payloadType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                                "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                                "code": "urn:hl7-org:sdwg:ccda-nonXMLBody:2.1"
+                            }
+                        ]
+                    }
+                ],
+                "address": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+            },
+            "fullUrl": "urn:uuid:Ehr.Endpoint.Id"
+        },
+        {
+            "resource": {
+                "resourceType": "Organization",
+                "id": "Ehr.Organization.Id",
+                "identifier": [
+                    {
+                        "system": "https://www.maxmddirect.com/fhir/identifier",
+                        "value": "MaxMDDemoEhrOrganization-local"
+                    }
+                ],
+                "name": "PMEHR Demo",
+                "telecom": [
+                    {
+                        "id": "1",
+                        "system": "phone",
+                        "value": "800-123-5555",
+                        "use": "work"
+                    }
+                ],
+                "address": [
+                    {
+                        "id": "1",
+                        "use": "work",
+                        "type": "postal",
+                        "text": "711 Security Blvd, Baltimore, MD 21075",
+                        "line": [
+                            "711 Security Blvd"
+                        ],
+                        "city": "Baltimore",
+                        "state": "MD",
+                        "postalCode": "21075",
+                        "country": "US"
+                    }
+                ],
+                "endpoint": [
+                    {
+                        "reference": "urn:uuid:Ehr.Endpoint.Id"
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:Ehr.Organization.Id"
+        },
+        {
+            "resource": {
+                "id": "id-task-20200505074804-5eb1608488b1f",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Task including Questionnaire to be completed.</p> </div>"
+                },
+                "identifier": [
+                    {
+                        "system": "https://www.maxmddirect.com/fhir/identifier/sdc/task",
+                        "value": "task-1588682885"
+                    }
+                ],
+                "resourceType": "Task",
+                "status": "requested",
+                "intent": "instance-order",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://grv.hl7t-tasks.tmp/grv-hl7t-tasks",
+                            "code": "grv-hl7-tasks-20191209143500ET",
+                            "display": "screen-pts"
+                        }
+                    ],
+                    "text": "Screen Patients"
+                },
+                "description": "Questionnaire sent out to be completed - 5/5 A",
+                "basedOn": [
+                    {
+                        "reference": "urn:uuid:id-communicationRequest-20200505074804-5eb1608488b47",
+                        "display": "CommunicationRequest"
+                    }
+                ],
+                "focus": {
+                    "reference": "urn:uuid:17d3c570-28de-4aa3-a135-e35d0932a4ec",
+                    "display": "Food Insecurity"
+                },
+                "for": {
+                    "reference": "urn:uuid:id-list-20200505074805-5eb16085448f1",
+                    "display": "Food Insecurity Questionnaire Patient List"
+                },
+                "requester": {
+                    "reference": "urn:uuid:Ehr.Organization.Id",
+                    "display": "PMEHR Demo"
+                },
+                "executionPeriod": {
+                    "start": "2020-05-05",
+                    "end": "2020-05-25"
+                },
+                "authoredOn": "2020-05-05T07:48:05-05:00"
+            },
+            "fullUrl": "urn:uuid:id-task-20200505074804-5eb1608488b1f"
+        },
+        {
+            "resource": {
+                "id": "id-communicationRequest-20200505074804-5eb1608488b47",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Screen Request Task including Questionnaire to be completed.</p> </div>"
+                },
+                "identifier": [
+                    {
+                        "system": "https://www.maxmddirect.com/fhir/identifier/sdc/communicationRequest",
+                        "value": "task-1588682885"
+                    }
+                ],
+                "resourceType": "CommunicationRequest",
+                "status": "active",
+                "category": {
+                    "coding": [
+                        {
+                            "system": "https://www.maxmddirect.com/fhir/CodeSystem/communication-category",
+                            "code": "ScreenRequest"
+                        }
+                    ],
+                    "text": "ScreenRequest"
+                },
+                "requester": {
+                    "reference": "urn:uuid:Ehr.Organization.Id",
+                    "display": "PMEHR Demo"
+                },
+                "authoredOn": "2020-05-05T07:48:05-05:00"
+            },
+            "fullUrl": "urn:uuid:id-communicationRequest-20200505074804-5eb1608488b47"
+        },
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "af0278c6-fafa-47c3-99aa-df693da905e0",
+                "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2020-04-17T21:04:50.000-05:00"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Alice <b>NEWMAN </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>3</td></tr><tr><td>Address</td><td><span>1357 Amber Dr </span><br/><span>Beaverton </span><span>OR </span></td></tr><tr><td>Date of birth</td><td><span>01 May 1970</span></td></tr></tbody></table></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "https://www.maxmddirect.com/fhir/identifier/sdc/userId",
+                        "value": "3"
+                    },
+                    {
+                        "system": "urn:oid:1.3.6.1.4.1.41179.2.4",
+                        "value": "anewman@patient.direct.myeval.md"
+                    }
+                ],
+                "name": [
+                    {
+                        "family": "Newman",
+                        "given": [
+                            "Alice"
+                        ]
+                    }
+                ],
+                "birthDate": "1970-05-01",
+                "address": [
+                    {
+                        "line": [
+                            "1357 Amber Dr"
+                        ],
+                        "city": "Beaverton",
+                        "state": "OR",
+                        "postalCode": "97006"
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:af0278c6-fafa-47c3-99aa-df693da905e0",
+            "request": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "e4b2dbce-0621-4229-a9ad-fcf88c247ce2",
+                "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2020-05-05T09:57:29.000-05:00"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Generated by <a href=\"https://github.com/synthetichealth/synthea\">Synthea</a>.Version identifier: v2.5.0-302-gba174626\n .   Person seed: -3565890935873144814  Population seed: 1585081056759</div>"
+                },
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+                        "valueString": "John Smith"
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+                        "valueAddress": {
+                            "city": "West Stockbridge",
+                            "state": "Massachusetts",
+                            "country": "US"
+                        }
+                    },
+                    {
+                        "url": "http://synthetichealth.github.io/synthea/disability-adjusted-life-years",
+                        "valueDecimal": 0.37077567835670033
+                    },
+                    {
+                        "url": "http://synthetichealth.github.io/synthea/quality-adjusted-life-years",
+                        "valueDecimal": 31.6292243216433
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "urn:oid:1.3.6.1.4.1.41179.2.4",
+                        "value": "jsmith@patient.direct.myeval.md"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR",
+                                    "display": "Medical Record Number"
+                                }
+                            ],
+                            "text": "Medical Record Number"
+                        },
+                        "system": "http://hospital.smarthealthit.org",
+                        "value": "f6b4cf10-be23-47cc-8262-7aaa8e6b7079"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "SS",
+                                    "display": "Social Security Number"
+                                }
+                            ],
+                            "text": "Social Security Number"
+                        },
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "999-10-3020"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "DL",
+                                    "display": "Driver's License"
+                                }
+                            ],
+                            "text": "Driver's License"
+                        },
+                        "system": "urn:oid:2.16.840.1.113883.4.3.25",
+                        "value": "S99925560"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "PPN",
+                                    "display": "Passport Number"
+                                }
+                            ],
+                            "text": "Passport Number"
+                        },
+                        "system": "http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber",
+                        "value": "X77224703X"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Smith",
+                        "given": [
+                            "John"
+                        ],
+                        "prefix": [
+                            "Mr."
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-838-9832",
+                        "use": "home"
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1987-07-16",
+                "address": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/geolocation",
+                                "extension": [
+                                    {
+                                        "url": "latitude",
+                                        "valueDecimal": 42.41432148913857
+                                    },
+                                    {
+                                        "url": "longitude",
+                                        "valueDecimal": -71.18415654287254
+                                    }
+                                ]
+                            }
+                        ],
+                        "line": [
+                            "325 Hayes Course"
+                        ],
+                        "city": "Woburn",
+                        "state": "Massachusetts",
+                        "country": "US"
+                    }
+                ],
+                "maritalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                            "code": "M",
+                            "display": "M"
+                        }
+                    ],
+                    "text": "M"
+                },
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "system": "urn:ietf:bcp:47",
+                                    "code": "en-US",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        }
+                    }
+                ]
+            },
+            "fullUrl": "urn:uuid:e4b2dbce-0621-4229-a9ad-fcf88c247ce2",
+            "request": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        }
+    ]
+}

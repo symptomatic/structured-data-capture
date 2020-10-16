@@ -1,0 +1,1575 @@
+{
+  "lformsVersion": "25.0.0",
+  "PATH_DELIMITER": "/",
+  "code": "93025-5",
+  "codeList": [
+    {
+      "code": "93025-5",
+      "display": "Protocol for Responding to and Assessing Patients' Assets, Risks, and Experiences [PRAPARE]"
+    }
+  ],
+  "identifier": null,
+  "name": "Protocol for Responding to and Assessing Patients' Assets, Risks, and Experiences [PRAPARE]",
+  "type": "LOINC",
+  "template": "table",
+  "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+  "items": [
+    {
+      "questionCode": "93043-8",
+      "localQuestionCode": null,
+      "dataType": "SECTION",
+      "header": true,
+      "units": null,
+      "codingInstructions": null,
+      "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+      "question": "Personal characteristics",
+      "answers": null,
+      "skipLogic": null,
+      "restrictions": null,
+      "defaultAnswer": null,
+      "formatting": null,
+      "calculationMethod": null,
+      "items": [
+        {
+          "questionCode": "56051-6",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Do you consider yourself Hispanic/Latino?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93043-8/56051-6",
+          "codeList": [
+            {
+              "code": "56051-6",
+              "display": "Do you consider yourself Hispanic/Latino?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "32624-9",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Race",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA6156-9",
+              "text": "Asian",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA14045-1",
+              "text": "Native Hawaiian",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30187-1",
+              "text": "Pacific Islander",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA14042-8",
+              "text": "Black/African American",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA4457-3",
+              "text": "White",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA4-4",
+              "text": "American Indian/Alaskan Native",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA46-8",
+              "text": "Other",
+              "other": "Please write"
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93043-8/32624-9",
+          "codeList": [
+            {
+              "code": "32624-9",
+              "display": "Race"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93035-4",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "At any point in the past 2 years, has season or migrant farm work been your or your family's main source of income?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93043-8/93035-4",
+          "codeList": [
+            {
+              "code": "93035-4",
+              "display": "At any point in the past 2 years, has season or migrant farm work been your or your family's main source of income?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93034-7",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Have you been discharged from the armed forces of the United States?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93043-8/93034-7",
+          "codeList": [
+            {
+              "code": "93034-7",
+              "display": "Have you been discharged from the armed forces of the United States?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "54899-0",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Preferred language",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA43-5",
+              "text": "English",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30188-9",
+              "text": "Language other than English",
+              "other": "Please write"
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93043-8/54899-0",
+          "codeList": [
+            {
+              "code": "54899-0",
+              "display": "Preferred language"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        }
+      ],
+      "linkId": "/93043-8",
+      "codeList": [
+        {
+          "code": "93043-8",
+          "display": "Personal characteristics"
+        }
+      ],
+      "displayControl": {
+        "questionLayout": "vertical"
+      },
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      }
+    },
+    {
+      "questionCode": "93042-0",
+      "localQuestionCode": null,
+      "dataType": "SECTION",
+      "header": true,
+      "units": null,
+      "codingInstructions": null,
+      "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+      "question": "Family and home",
+      "answers": null,
+      "skipLogic": null,
+      "restrictions": null,
+      "defaultAnswer": null,
+      "formatting": null,
+      "calculationMethod": null,
+      "items": [
+        {
+          "questionCode": "63512-8",
+          "localQuestionCode": null,
+          "dataType": "REAL",
+          "header": false,
+          "units": [
+            {
+              "name": "{#}",
+              "code": "{#}",
+              "system": "http://unitsofmeasure.org",
+              "default": false
+            }
+          ],
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "How many people are living or staying at this address?",
+          "answers": null,
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93042-0/63512-8",
+          "codeList": [
+            {
+              "code": "63512-8",
+              "display": "How many people are living or staying at this address?"
+            }
+          ],
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          },
+          "unit": {
+            "name": "{#}",
+            "code": "{#}",
+            "system": "http://unitsofmeasure.org",
+            "default": false
+          }
+        },
+        {
+          "questionCode": "71802-3",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": "Describes patients living arrangement",
+          "copyrightNotice": null,
+          "question": "Housing status",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA30189-7",
+              "text": "I have housing",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30190-5",
+              "text": "I do not have housing (staying with others, in a hotel, in a shelter, living outside on the street, on a beach, in a car, or in a park)",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93042-0/71802-3",
+          "codeList": [
+            {
+              "code": "71802-3",
+              "display": "Housing status"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93033-9",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "Are you worried about losing your housing?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93042-0/93033-9",
+          "codeList": [
+            {
+              "code": "93033-9",
+              "display": "Are you worried about losing your housing?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "56799-0",
+          "localQuestionCode": null,
+          "dataType": "ST",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Address",
+          "answers": null,
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93042-0/56799-0",
+          "codeList": [
+            {
+              "code": "56799-0",
+              "display": "Address"
+            }
+          ],
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        }
+      ],
+      "linkId": "/93042-0",
+      "codeList": [
+        {
+          "code": "93042-0",
+          "display": "Family and home"
+        }
+      ],
+      "displayControl": {
+        "questionLayout": "vertical"
+      },
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      }
+    },
+    {
+      "questionCode": "93041-2",
+      "localQuestionCode": null,
+      "dataType": "SECTION",
+      "header": true,
+      "units": null,
+      "codingInstructions": null,
+      "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+      "question": "Money and resources",
+      "answers": null,
+      "skipLogic": null,
+      "restrictions": null,
+      "defaultAnswer": null,
+      "formatting": null,
+      "calculationMethod": null,
+      "items": [
+        {
+          "questionCode": "82589-3",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Highest level of educ",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA30191-3",
+              "text": "Less than high school degree",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30192-1",
+              "text": "High school diploma or GED",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30193-9",
+              "text": "More than high school",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/82589-3",
+          "codeList": [
+            {
+              "code": "82589-3",
+              "display": "Highest level of educ"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "67875-5",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Employment status current",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA17956-6",
+              "text": "Unemployed",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30138-4",
+              "text": "Part-time or temporary work",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30136-8",
+              "text": "Full-time work",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30137-6",
+              "text": "Otherwise unemployed but not seeking work (ex: student, retired, disabled, unpaid primary care giver)",
+              "other": "Please write"
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/67875-5",
+          "codeList": [
+            {
+              "code": "67875-5",
+              "display": "Employment status current"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "76437-3",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Primary insurance",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA30194-7",
+              "text": "None/uninsured",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA17849-3",
+              "text": "Medicaid",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30195-4",
+              "text": "CHIP Medicaid",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA15652-3",
+              "text": "Medicare",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30196-2",
+              "text": "Other public insurance (not CHIP)",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30197-0",
+              "text": "Other public insurance (CHIP)",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA6350-8",
+              "text": "Private insurance",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/76437-3",
+          "codeList": [
+            {
+              "code": "76437-3",
+              "display": "Primary insurance"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "63586-2",
+          "localQuestionCode": null,
+          "dataType": "REAL",
+          "header": false,
+          "units": [
+            {
+              "name": "/a",
+              "code": "/a",
+              "system": "http://unitsofmeasure.org",
+              "default": false
+            }
+          ],
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "What was your best estimate of the total income of all family members from all sources, before taxes, in last year?",
+          "answers": null,
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/63586-2",
+          "codeList": [
+            {
+              "code": "63586-2",
+              "display": "What was your best estimate of the total income of all family members from all sources, before taxes, in last year?"
+            }
+          ],
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          },
+          "unit": {
+            "name": "/a",
+            "code": "/a",
+            "system": "http://unitsofmeasure.org",
+            "default": false
+          }
+        },
+        {
+          "questionCode": "93031-3",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA30125-1",
+              "text": "Food",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30126-9",
+              "text": "Clothing",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30124-4",
+              "text": "Utilities",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30127-7",
+              "text": "Child care",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30128-5",
+              "text": "Medicine or Any Health Care (Medical, Dental, Mental Health, Vision)",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30129-3",
+              "text": "Phone",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA46-8",
+              "text": "Other",
+              "other": "Please write"
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/93031-3",
+          "codeList": [
+            {
+              "code": "93031-3",
+              "display": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93030-5",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living?",
+          "answers": [
+            {
+              "label": "A",
+              "code": "LA30133-5",
+              "text": "Yes, it has kept me from medical appointments or from getting my medications",
+              "other": null
+            },
+            {
+              "label": "B",
+              "code": "LA30134-3",
+              "text": "Yes, it has kept me from non-medical meetings, appointments, work, or from getting things that I need",
+              "other": null
+            },
+            {
+              "label": "C",
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": "X",
+              "code": "LA30257-2",
+              "text": "Patient unable to respond",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93041-2/93030-5",
+          "codeList": [
+            {
+              "code": "93030-5",
+              "display": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        }
+      ],
+      "linkId": "/93041-2",
+      "codeList": [
+        {
+          "code": "93041-2",
+          "display": "Money and resources"
+        }
+      ],
+      "displayControl": {
+        "questionLayout": "vertical"
+      },
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      }
+    },
+    {
+      "questionCode": "93040-4",
+      "localQuestionCode": null,
+      "dataType": "SECTION",
+      "header": true,
+      "units": null,
+      "codingInstructions": null,
+      "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+      "question": "Social and emotional health",
+      "answers": null,
+      "skipLogic": null,
+      "restrictions": null,
+      "defaultAnswer": null,
+      "formatting": null,
+      "calculationMethod": null,
+      "items": [
+        {
+          "questionCode": "93029-7",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "How often do you see or talk to people that you care about and feel close to (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA27722-0",
+              "text": "Less than once a week",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30130-1",
+              "text": "1 or 2 times a week",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30131-9",
+              "text": "3 to 5 times a week",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30132-7",
+              "text": "5 or more times a week",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93040-4/93029-7",
+          "codeList": [
+            {
+              "code": "93029-7",
+              "display": "How often do you see or talk to people that you care about and feel close to (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93038-8",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "Stress is when someone feels tense, nervous, anxious or can't sleep at night because their mind is troubled. How stressed are you?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA6568-5",
+              "text": "Not at all",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA13863-8",
+              "text": "A little bit",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA13909-9",
+              "text": "Somewhat",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA13902-4",
+              "text": "Quite a bit",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA13914-9",
+              "text": "Very much",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93040-4/93038-8",
+          "codeList": [
+            {
+              "code": "93038-8",
+              "display": "Stress is when someone feels tense, nervous, anxious or can't sleep at night because their mind is troubled. How stressed are you?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        }
+      ],
+      "linkId": "/93040-4",
+      "codeList": [
+        {
+          "code": "93040-4",
+          "display": "Social and emotional health"
+        }
+      ],
+      "displayControl": {
+        "questionLayout": "vertical"
+      },
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      }
+    },
+    {
+      "questionCode": "93039-6",
+      "localQuestionCode": null,
+      "dataType": "SECTION",
+      "header": true,
+      "units": null,
+      "codingInstructions": null,
+      "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+      "question": "Optional additional questions",
+      "answers": null,
+      "skipLogic": null,
+      "restrictions": null,
+      "defaultAnswer": null,
+      "formatting": null,
+      "calculationMethod": null,
+      "items": [
+        {
+          "questionCode": "93028-9",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93039-6/93028-9",
+          "codeList": [
+            {
+              "code": "93028-9",
+              "display": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93027-1",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Are you a refugee?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93039-6/93027-1",
+          "codeList": [
+            {
+              "code": "93027-1",
+              "display": "Are you a refugee?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "93026-3",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": "© 2019. This item comes from the national PRAPARE social determinants of health assessment protocol, developed and owned by the National Association of Community Health Centers (NACHC), in partnership with the Association of Asian Pacific Community Health Organization (AAPCHO), the Oregon Primary Care Association (OPCA), and the Institute for Alternative Futures (IAF). For more information, visit www.nachc.org/prapare Used with permission.",
+          "question": "Do you feel physically and emotionally safe where you currently live?",
+          "answers": [
+            {
+              "label": null,
+              "code": "LA33-6",
+              "text": "Yes",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA32-8",
+              "text": "No",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA14072-5",
+              "text": "Unsure",
+              "other": null
+            },
+            {
+              "label": null,
+              "code": "LA30122-8",
+              "text": "I choose not to answer this question",
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93039-6/93026-3",
+          "codeList": [
+            {
+              "code": "93026-3",
+              "display": "Do you feel physically and emotionally safe where you currently live?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        },
+        {
+          "questionCode": "76501-6",
+          "localQuestionCode": null,
+          "dataType": "CNE",
+          "header": false,
+          "units": null,
+          "codingInstructions": null,
+          "copyrightNotice": null,
+          "question": "Within the last year, have you been afraid of your partner or ex-partner?",
+          "answers": [
+            {
+              "label": "1",
+              "code": "LA33-6",
+              "text": "Yes",
+              "score": 1,
+              "other": null
+            },
+            {
+              "label": "0",
+              "code": "LA32-8",
+              "text": "No",
+              "score": 0,
+              "other": null
+            }
+          ],
+          "skipLogic": null,
+          "restrictions": null,
+          "defaultAnswer": null,
+          "formatting": null,
+          "calculationMethod": null,
+          "items": null,
+          "linkId": "/93039-6/76501-6",
+          "codeList": [
+            {
+              "code": "76501-6",
+              "display": "Within the last year, have you been afraid of your partner or ex-partner?"
+            }
+          ],
+          "displayControl": {
+            "answerLayout": {
+              "type": "COMBO_BOX",
+              "columns": "0"
+            }
+          },
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "answerCardinality": {
+            "min": "0",
+            "max": "1"
+          }
+        }
+      ],
+      "linkId": "/93039-6",
+      "codeList": [
+        {
+          "code": "93039-6",
+          "display": "Optional additional questions"
+        }
+      ],
+      "displayControl": {
+        "questionLayout": "vertical"
+      },
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      }
+    }
+  ],
+  "templateOptions": {
+    "showQuestionCode": false,
+    "showCodingInstruction": false,
+    "tabOnInputFieldsOnly": false,
+    "hideFormControls": false,
+    "showFormOptionPanel": false,
+    "showFormOptionPanelButton": true,
+    "showItemOptionPanelButton": true,
+    "hideUnits": false,
+    "allowMultipleEmptyRepeatingItems": false,
+    "allowHTMLInInstructions": false,
+    "useAnimation": true,
+    "displayControl": {
+      "questionLayout": "vertical"
+    },
+    "viewMode": "auto",
+    "showFormHeader": true,
+    "formHeaderItems": [
+      {
+        "question": "Date Done",
+        "questionCode": "date_done",
+        "dataType": "DT",
+        "answers": "",
+        "answerCardinality": {
+          "min": "1",
+          "max": "1"
+        }
+      },
+      {
+        "question": "Time Done",
+        "questionCode": "time_done",
+        "dataType": "TM",
+        "answers": ""
+      },
+      {
+        "question": "Where Done",
+        "questionCode": "where_done",
+        "dataType": "CWE",
+        "answers": [
+          {
+            "text": "Home",
+            "code": "1"
+          },
+          {
+            "text": "Hospital",
+            "code": "2"
+          },
+          {
+            "text": "MD Office",
+            "code": "3"
+          },
+          {
+            "text": "Lab",
+            "code": "4"
+          },
+          {
+            "text": "Other",
+            "code": "5"
+          }
+        ]
+      },
+      {
+        "question": "Comment",
+        "questionCode": "comment",
+        "dataType": "TX",
+        "answers": ""
+      }
+    ],
+    "showColumnHeaders": true,
+    "defaultAnswerLayout": {
+      "answerLayout": {
+        "type": "COMBO_BOX",
+        "columns": "0"
+      }
+    },
+    "useTreeLineStyle": true,
+    "columnHeaders": [
+      {
+        "name": "Name"
+      },
+      {
+        "name": "Value"
+      },
+      {
+        "name": "Units"
+      }
+    ]
+  },
+  "hasSavedData": true
+}

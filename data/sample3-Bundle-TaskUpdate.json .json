@@ -1,0 +1,71 @@
+{
+    "resourceType": "Bundle",
+    "type": "message",
+    "entry": [
+      {
+        "fullUrl": "urn:uuid:2b782089-534d-40c8-b0e4-3e1880c1875b",
+        "resource": {
+          "resourceType": "MessageHeader",
+          "id": "2b782089-534d-40c8-b0e4-3e1880c1875b",
+          "eventCoding": {
+            "system": "http://hl7.org/fhir/us/sdoh-cc/CodeSystem/sdohcc-temporary-codes",
+            "code": "sdohcc-hl7t-update-task",
+            "display": "Update Task Message"
+          },
+          "destination": [
+            {
+              "endpoint": "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+            }
+          ],
+          "focus": [
+            {
+              "reference": "urn:uuid:e660afb3-3fad-4921-b05a-025dc8744984",
+              "display": "Questionnaire sent out to be completed"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:e660afb3-3fad-4921-b05a-025dc8744984",
+        "resource": {
+          "resourceType": "Task",
+          "id": "e660afb3-3fad-4921-b05a-025dc8744984",
+          "identifier": [
+            {
+              "system": "https://www.maxmddirect.com/fhir/identifier/sdc/task",
+              "value": "task-1587153359"
+            }
+          ],
+          "status": "completed",
+          "note": [
+            {
+              "time": "2020-04-19T23:28:26-04:00",
+              "text": "Sent Questionnaire to patient: Newman, Alice"
+            },
+            {
+              "time": "2020-04-19T23:28:27-04:00",
+              "text": "Sent Questionnaire to patient: Bates, Jeremy"
+            },
+            {
+              "time": "2020-04-19T23:28:29-04:00",
+              "text": "Send Status update to remote FHIR server https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+            },
+            
+            {
+              "time": "2020-04-19T23:37:20-04:00",
+              "text": "Sent response to remote FHIR server https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+            },
+            {
+              "time": "2020-04-19T23:45:44-04:00",
+              "text": "Patient Bates, Jeremy rejected the consent"
+            },
+            {
+              "time": "2020-04-19T23:45:48-04:00",
+              "text": "Sent response to remote FHIR server https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

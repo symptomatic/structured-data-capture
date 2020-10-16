@@ -1,0 +1,378 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "2360",
+  "meta" : {
+    "versionId" : "1",
+    "lastUpdated" : "2020-03-11T20:10:05.007+00:00",
+    "source" : "#RJLOTtsmHf1lB4l6"
+  },
+  "type" : "message",
+  "entry" : [
+    {
+      "fullUrl" : "urn:uuid:64ff34ad-6c63-4971-8528-ba9b941442be",
+      "resource" : {
+        "resourceType" : "MessageHeader",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>event</b>: screen-response (Details: http://sdohcc-hl7t-messageHeader.tmp/sdohcc-screening_task code sdohcc-hl7t-screening-response = 'sdohcc-hl7t-screening-response', stated as 'screen-response')</p><h3>Destinations</h3><table class=\"grid\"><tr><td>-</td><td><b>Endpoint</b></td></tr><tr><td>*</td><td><a href=\"https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4\">https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"#urnuuidaf3375e1-98b5-4c6d-b7bb-817a0e0fbdb8\">Food Insecurity (Hunger Vital Sign). Generated Summary: unknown resource entry</a></li><li><a href=\"Task?identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2Ftask%7Ctask-1583527207\">Questionnaire sent out to be completed - 3/6</a></li><li><a href=\"#urnuuidc11fdd4a-864e-4d2d-aeda-a09110e7d4ef\">Consent. Generated Summary: unknown resource entry</a></li><li><a href=\"#urnuuid5e6e4a27-8b92-41bd-b732-5871c8d40275\">QuestionnaireResponse. Generated Summary: unknown resource entry</a></li><li><a href=\"#urnuuid7779e7ad-4f33-42b1-8810-dfb3ab5f44cf\">Communication. Generated Summary: unknown resource entry</a></li><li><a href=\"#urnuuid71c34be5-c8dc-4b77-bf4f-86bed104e68f\">Observation. Generated Summary: unknown resource entry</a></li></ul></div>"
+        },
+        "eventCoding" : {
+          "system" : "http://sdohcc-hl7t-messageHeader.tmp/sdohcc-screening_task",
+          "code" : "sdohcc-hl7t-screening-response",
+          "display" : "screen-response"
+        },
+        "destination" : [
+          {
+            "endpoint" : "https://ehr-sandbox.directmdemail.com:8443/fhir/baseR4"
+          }
+        ],
+        "focus" : [
+          {
+            "reference" : "urn:uuid:af3375e1-98b5-4c6d-b7bb-817a0e0fbdb8",
+            "display" : "Food Insecurity (Hunger Vital Sign)"
+          },
+          {
+            "reference" : "Task?identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2Ftask%7Ctask-1583527207",
+            "display" : "Questionnaire sent out to be completed - 3/6"
+          },
+          {
+            "reference" : "urn:uuid:c11fdd4a-864e-4d2d-aeda-a09110e7d4ef",
+            "display" : "Consent"
+          },
+          {
+            "reference" : "urn:uuid:5e6e4a27-8b92-41bd-b732-5871c8d40275",
+            "display" : "QuestionnaireResponse"
+          },
+          {
+            "reference" : "urn:uuid:7779e7ad-4f33-42b1-8810-dfb3ab5f44cf",
+            "display" : "Communication"
+          },
+          {
+            "reference" : "urn:uuid:71c34be5-c8dc-4b77-bf4f-86bed104e68f",
+            "display" : "Observation"
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "MessageHeader"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:5121ccc2-5ee0-4fe5-a428-9f11ad8bd30d",
+      "resource" : {
+        "resourceType" : "Binary",
+        "contentType" : "application/json",
+        "data" : "eyJyZXNvdXJjZVR5cGUiOiJCdW5kbGUiLCJ0eXBlIjoiZG9jdW1lbnQiLCJlbnRyeSI6W3sicmVzb3VyY2UiOnsicmVzb3VyY2VUeXBlIjoiQ29tcG9zaXRpb24iLCJpZCI6IjA1ZmI3MjBhLTE0MTQtNDI1OC04ZTRlLThmZmU0YWYxZjAxYSIsIm1ldGEiOnsidmVyc2lvbklkIjoiMSIsImxhc3RVcGRhdGVkIjoiMjAyMC0wMy0wNlQxNTo0MzoyNy45NjgtMDU6MDAifSwidHlwZSI6eyJjb2RpbmciOlt7ImNvZGUiOiI4ODEyMi03IiwiZGlzcGxheSI6IldpdGhpbiB0aGUgcGFzdCAxMk1vIHdlIHdvcnJpZWQgd2hldGhlciBvdXIgZm9vZCB3b3VsZCBydW4gb3V0IGJlZm9yZSB3ZSBnb3QgbW9uZXkgdG8gYnV5IG1vcmUifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6IlBhdGllbnQvNmQ1MjgxYWMtMGEwMi00NTRmLWIwY2ItNGFhM2M3NDc4MDE1In0sInRpdGxlIjoiRm9vZCBJbnNlY3VyaXR5IChIdW5nZXIgVml0YWwgU2lnbikiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlNvY2lhbCBIaXN0b3J5IiwiY29kZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9sb2luYy5vcmciLCJjb2RlIjoiMjk3NjItMiJ9XSwidGV4dCI6IlNvY2lhbCBIaXN0b3J5In0sInRleHQiOnsic3RhdHVzIjoiZ2VuZXJhdGVkIiwiZGl2IjoiPGRpdiB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWxcIj4gXG4gICAgICAgICAgICAgICAgICAgICA8cD5Db25zZW50IDwvcD5cbiAgICAgICAgICAgICAgICAgICAgIDxwPlxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdj4gUE1FSFIgRGVtbyBoYXMgcGVybWlzc2lvbiB0byBjb2xsZWN0IGFuZCBzaGFyZSB0aGUgU0RPSCBTY3JlZW5pbmcgaW5mb3JtYXRpb24gZ2F0aGVyZWQgYnkgdGhpcyBxdWVzdGlvbm5haXJlIHdpdGggdGhlIG9yZ2FuaXphdGlvbiBpbml0aWF0aW5nIHRoZSBzY3JlZW5pbmcgcmVxdWVzdC5cbiAgICBUaGUgaW5mb3JtYXRpb24gbWF5IGJlIHVzZWQgZm9yIHRyZWF0bWVudCwgcGF5bWVudCwgYW5kIG9wZXJhdGlvbnMgaW4gc3VwcG9ydCBvZiBjYXJlIGJlaW5nIGRlbGl2ZXJlZCBmb3IgdGhpcyBwYXRpZW50LiA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgIDwvcD4gXG4gICAgICAgICAgICAgICAgICAgICA8cD4gRm9vZCBJbnNlY3VyaXR5IC0gUXVlc3Rpb25uYWlyZSBSZXNwb25zZSA8L3A+IFxuICAgICAgICAgICAgICAgICAgICAgPHRhYmxlPiBcbiAgICAgICAgICAgICAgICAgICAgICAgIDx0Ym9keT5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0cj4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGg+IFdpdGhpbiB0aGUgcGFzdCAxMk1vIHdlIHdvcnJpZWQgd2hldGhlciBvdXIgZm9vZCB3b3VsZCBydW4gb3V0IGJlZm9yZSB3ZSBnb3QgbW9uZXkgdG8gYnV5IG1vcmUgPC90aD4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGQ+IE5ldmVyIHRydWUgPC90ZD4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRyPiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0aD4gV2l0aGluIHRoZSBwYXN0IDEyTW8gdGhlIGZvb2Qgd2UgYm91Z2h0IGp1c3QgZGlkbid0IGxhc3QgYW5kIHdlIGRpZG4ndCBoYXZlIG1vbmV5IHRvIGdldCBtb3JlIDwvdGg+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRkPiBEb24ndCBrbm93L3JlZnVzZWQgPC90ZD4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRyPiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0aD4gRm9vZCBpbnNlY3VyaXR5IHJpc2sgPC90aD4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGQ+IE5vIHJpc2sgPC90ZD4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC90Ym9keT4gXG4gICAgICAgICAgICAgICAgICAgICA8L3RhYmxlPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+In0sImVudHJ5IjpbeyJyZWZlcmVuY2UiOiJDb25zZW50LzlkMWI2OWJhLTVhMzYtNGZlYS1hMGUwLTFjNTViOWQyZDU3MyJ9LHsicmVmZXJlbmNlIjoiUXVlc3Rpb25uYWlyZVJlc3BvbnNlLzM0MDRhNTAwLTFkMjgtNDJlMi1iNmJmLTZhZTIzOWNiMzAwMCJ9LHsicmVmZXJlbmNlIjoiT2JzZXJ2YXRpb24vOWRmNGM2Y2MtNDVmMi00MjBkLWE5MjYtMTZhN2Q4ZDFjNThkIn1dfV19fSx7InJlc291cmNlIjp7InJlc291cmNlVHlwZSI6IlF1ZXN0aW9ubmFpcmVSZXNwb25zZSIsImlkIjoiMzQwNGE1MDAtMWQyOC00MmUyLWI2YmYtNmFlMjM5Y2IzMDAwIiwibWV0YSI6eyJ2ZXJzaW9uSWQiOiIxIiwibGFzdFVwZGF0ZWQiOiIyMDIwLTAzLTA2VDE1OjQzOjI2LjQwMS0wNTowMCIsInByb2ZpbGUiOlsiaHR0cDovL2hsNy5vcmcvZmhpci91di9zZGMvU3RydWN0dXJlRGVmaW5pdGlvbi9zZGMtcXVlc3Rpb25uYWlyZXJlc3BvbnNlfDIuNyJdfSwiaWRlbnRpZmllciI6eyJzeXN0ZW0iOiJodHRwczovL3d3dy5tYXhtZGRpcmVjdC5jb20vZmhpci9pZGVudGlmaWVyL3NkYy91c2VyRm9ybUlkIiwidmFsdWUiOiI5MSJ9LCJxdWVzdGlvbm5haXJlIjoiUXVlc3Rpb25uYWlyZS9lMDdjMDI3OS1jNDgzLTQwZWYtODliZi1lOTA1MTgzOTliNmEiLCJzdGF0dXMiOiJjb21wbGV0ZWQiLCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6IlBhdGllbnQvNmQ1MjgxYWMtMGEwMi00NTRmLWIwY2ItNGFhM2M3NDc4MDE1In0sImF1dGhvcmVkIjoiMjAyMC0wMy0wNlQyMDo0MzoyNS40OThaIiwiYXV0aG9yIjp7InJlZmVyZW5jZSI6IkRldmljZS9lNzhkOGE5OS1hNmQyLTQwOWUtODRmNS04MThmMmY5ZDJlNzcifSwic291cmNlIjp7InJlZmVyZW5jZSI6IlBhdGllbnQvNmQ1MjgxYWMtMGEwMi00NTRmLWIwY2ItNGFhM2M3NDc4MDE1In0sIml0ZW0iOlt7ImxpbmtJZCI6Ii84ODEyMi03IiwidGV4dCI6IldpdGhpbiB0aGUgcGFzdCAxMk1vIHdlIHdvcnJpZWQgd2hldGhlciBvdXIgZm9vZCB3b3VsZCBydW4gb3V0IGJlZm9yZSB3ZSBnb3QgbW9uZXkgdG8gYnV5IG1vcmUiLCJhbnN3ZXIiOlt7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTI4Mzk4LTgiLCJkaXNwbGF5IjoiTmV2ZXIgdHJ1ZSJ9fV19LHsibGlua0lkIjoiLzg4MTIzLTUiLCJ0ZXh0IjoiV2l0aGluIHRoZSBwYXN0IDEyTW8gdGhlIGZvb2Qgd2UgYm91Z2h0IGp1c3QgZGlkbid0IGxhc3QgYW5kIHdlIGRpZG4ndCBoYXZlIG1vbmV5IHRvIGdldCBtb3JlIiwiYW5zd2VyIjpbeyJ2YWx1ZUNvZGluZyI6eyJjb2RlIjoiTEExNTc3NS0yIiwiZGlzcGxheSI6IkRvbid0IGtub3cvcmVmdXNlZCJ9fV19LHsibGlua0lkIjoiLzg4MTI0LTMiLCJ0ZXh0IjoiRm9vZCBpbnNlY3VyaXR5IHJpc2siLCJhbnN3ZXIiOlt7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTE5OTgzLTgiLCJkaXNwbGF5IjoiTm8gcmlzayJ9fV19XX19LHsicmVzb3VyY2UiOnsicmVzb3VyY2VUeXBlIjoiT2JzZXJ2YXRpb24iLCJpZCI6IjlkZjRjNmNjLTQ1ZjItNDIwZC1hOTI2LTE2YTdkOGQxYzU4ZCIsIm1ldGEiOnsidmVyc2lvbklkIjoiMSIsImxhc3RVcGRhdGVkIjoiMjAyMC0wMy0wNlQxNTo0MzoyNi40MDEtMDU6MDAifSwic3RhdHVzIjoiZmluYWwiLCJjb2RlIjp7ImNvZGluZyI6W3siY29kZSI6Ijg4MTI0LTMiLCJkaXNwbGF5IjoiRm9vZCBpbnNlY3VyaXR5IHJpc2sifV0sInRleHQiOiJGb29kIGluc2VjdXJpdHkgcmlzayJ9LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6IlBhdGllbnQvNmQ1MjgxYWMtMGEwMi00NTRmLWIwY2ItNGFhM2M3NDc4MDE1In0sImVmZmVjdGl2ZURhdGVUaW1lIjoiMjAyMC0wMy0wNlQyMDo0MzoyNS40OThaIiwiaXNzdWVkIjoiMjAyMC0wMy0wNlQyMDo0MzoyNS40OThaIiwidmFsdWVDb2RlYWJsZUNvbmNlcHQiOnsiY29kaW5nIjpbeyJjb2RlIjoiTEExOTk4My04IiwiZGlzcGxheSI6Ik5vIHJpc2sifV0sInRleHQiOiJObyByaXNrIn0sImRlcml2ZWRGcm9tIjpbeyJyZWZlcmVuY2UiOiJRdWVzdGlvbm5haXJlUmVzcG9uc2UvMzQwNGE1MDAtMWQyOC00MmUyLWI2YmYtNmFlMjM5Y2IzMDAwIn1dfX0seyJyZXNvdXJjZSI6eyJyZXNvdXJjZVR5cGUiOiJDb25zZW50IiwiaWQiOiI5ZDFiNjliYS01YTM2LTRmZWEtYTBlMC0xYzU1YjlkMmQ1NzMiLCJtZXRhIjp7InZlcnNpb25JZCI6IjEiLCJsYXN0VXBkYXRlZCI6IjIwMjAtMDMtMDZUMTU6NDM6MjYuNDAxLTA1OjAwIn0sInRleHQiOnsic3RhdHVzIjoiZ2VuZXJhdGVkIiwiZGl2IjoiPGRpdiB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWxcIj4gUE1FSFIgRGVtbyBoYXMgcGVybWlzc2lvbiB0byBjb2xsZWN0IGFuZCBzaGFyZSB0aGUgU0RPSCBTY3JlZW5pbmcgaW5mb3JtYXRpb24gZ2F0aGVyZWQgYnkgdGhpcyBxdWVzdGlvbm5haXJlIHdpdGggdGhlIG9yZ2FuaXphdGlvbiBpbml0aWF0aW5nIHRoZSBzY3JlZW5pbmcgcmVxdWVzdC5cbiAgICBUaGUgaW5mb3JtYXRpb24gbWF5IGJlIHVzZWQgZm9yIHRyZWF0bWVudCwgcGF5bWVudCwgYW5kIG9wZXJhdGlvbnMgaW4gc3VwcG9ydCBvZiBjYXJlIGJlaW5nIGRlbGl2ZXJlZCBmb3IgdGhpcyBwYXRpZW50LiA8L2Rpdj4ifSwic3RhdHVzIjoiYWN0aXZlIiwic2NvcGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL2NvbnNlbnRzY29wZSIsImNvZGUiOiJwYXRpZW50LXByaXZhY3kiLCJkaXNwbGF5IjoiUHJpdmFjeSBDb25zZW50In1dfSwiY2F0ZWdvcnkiOlt7ImNvZGluZyI6W3sic3lzdGVtIjoiaHR0cDovL3Rlcm1pbm9sb2d5LmhsNy5vcmcvQ29kZVN5c3RlbS92My1BY3RDb2RlIiwiY29kZSI6IklDT0wiLCJkaXNwbGF5IjoiaW5mb3JtYXRpb24gY29sbGVjdGlvbiJ9XX1dLCJwYXRpZW50Ijp7InJlZmVyZW5jZSI6IlBhdGllbnQvNmQ1MjgxYWMtMGEwMi00NTRmLWIwY2ItNGFhM2M3NDc4MDE1In0sImRhdGVUaW1lIjoiMjAyMC0wMy0wNlQxNDo0MzoyNi0wNjowMCIsInNvdXJjZVJlZmVyZW5jZSI6eyJyZWZlcmVuY2UiOiJRdWVzdGlvbm5haXJlUmVzcG9uc2UvMzQwNGE1MDAtMWQyOC00MmUyLWI2YmYtNmFlMjM5Y2IzMDAwIn19fSx7InJlc291cmNlIjp7InJlc291cmNlVHlwZSI6IlBhdGllbnQiLCJpZCI6IjZkNTI4MWFjLTBhMDItNDU0Zi1iMGNiLTRhYTNjNzQ3ODAxNSIsIm1ldGEiOnsidmVyc2lvbklkIjoiMSIsImxhc3RVcGRhdGVkIjoiMjAxOS0xMi0wOVQxMDo1MDo1OC4yMDEtMDU6MDAifSwidGV4dCI6eyJzdGF0dXMiOiJnZW5lcmF0ZWQiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImhhcGlIZWFkZXJUZXh0XCI+QWxpY2UgXG4gICAgICAgICAgICAgICAgICAgICA8Yj5ORVdNQU4gPC9iPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8dGFibGUgY2xhc3M9XCJoYXBpUHJvcGVydHlUYWJsZVwiPlxuICAgICAgICAgICAgICAgICAgICAgPHRib2R5PlxuICAgICAgICAgICAgICAgICAgICAgICAgPHRyPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRkPklkZW50aWZpZXI8L3RkPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRkPjM8L3RkPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDx0cj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5BZGRyZXNzPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPjEzNTcgQW1iZXIgRHIgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJyLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPkJlYXZlcnRvbiA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj5PUiA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDx0cj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5EYXRlIG9mIGJpcnRoPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPjAxIE1heSAxOTcwPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICAgICAgICAgICA8L3Rib2R5PlxuICAgICAgICAgICAgICAgICAgPC90YWJsZT5cbiAgICAgICAgICAgICAgIDwvZGl2PiJ9LCJpZGVudGlmaWVyIjpbeyJzeXN0ZW0iOiJodHRwczovL3d3dy5tYXhtZGRpcmVjdC5jb20vZmhpci9pZGVudGlmaWVyL3NkYy91c2VySWQiLCJ2YWx1ZSI6IjMifV0sIm5hbWUiOlt7ImZhbWlseSI6Ik5ld21hbiIsImdpdmVuIjpbIkFsaWNlIl19XSwiYmlydGhEYXRlIjoiMTk3MC0wNS0wMSIsImFkZHJlc3MiOlt7ImxpbmUiOlsiMTM1NyBBbWJlciBEciJdLCJjaXR5IjoiQmVhdmVydG9uIiwic3RhdGUiOiJPUiIsInBvc3RhbENvZGUiOiI5NzAwNiJ9XX19LHsicmVzb3VyY2UiOnsicmVzb3VyY2VUeXBlIjoiRGV2aWNlIiwiaWQiOiJlNzhkOGE5OS1hNmQyLTQwOWUtODRmNS04MThmMmY5ZDJlNzciLCJtZXRhIjp7InZlcnNpb25JZCI6IjEiLCJsYXN0VXBkYXRlZCI6IjIwMTktMTItMTBUMTU6Mjc6MzEuMzAyLTA1OjAwIn0sImlkZW50aWZpZXIiOlt7InN5c3RlbSI6Imh0dHBzOi8vd3d3Lm1heG1kZGlyZWN0LmNvbS9maGlyL2lkZW50aWZpZXIvc2RjL2FwcC9kZXZpY2VJZCIsInZhbHVlIjoiTG9jYWwtMSJ9XSwic3RhdHVzIjoiYWN0aXZlIiwiZGV2aWNlTmFtZSI6W3sibmFtZSI6Ik1heE1EIEFQUCJ9XX19LHsicmVzb3VyY2UiOnsicmVzb3VyY2VUeXBlIjoiUXVlc3Rpb25uYWlyZSIsImlkIjoiZTA3YzAyNzktYzQ4My00MGVmLTg5YmYtZTkwNTE4Mzk5YjZhIiwibWV0YSI6eyJ2ZXJzaW9uSWQiOiI0IiwibGFzdFVwZGF0ZWQiOiIyMDIwLTAzLTA0VDExOjEzOjIyLjM1MS0wNTowMCIsInByb2ZpbGUiOlsiaHR0cDovL2hsNy5vcmcvZmhpci91di9zZGMvU3RydWN0dXJlRGVmaW5pdGlvbi9zZGMtcXVlc3Rpb25uYWlyZXwyLjciXX0sImV4dGVuc2lvbiI6W3sidXJsIjoiaHR0cDovL2hsNy5vcmcvZmhpci91cy9zZGMvU3RydWN0dXJlRGVmaW5pdGlvbi9zZGMtcXVlc3Rpb25uYWlyZS1lbmRwb2ludCIsInZhbHVlU3RyaW5nIjoiaHR0cHM6Ly9laHItc2FuZGJveC5kaXJlY3RtZGVtYWlsLmNvbTo4NDQzL2ZoaXIvYmFzZVI0In0seyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vdmFyaWFibGUiLCJ2YWx1ZUV4cHJlc3Npb24iOnsibmFtZSI6IndvcnJpZWRBbnNDb2RlIiwibGFuZ3VhZ2UiOiJ0ZXh0L2ZoaXJwYXRoIiwiZXhwcmVzc2lvbiI6IiVyZXNvdXJjZS5pdGVtLndoZXJlKGxpbmtJZD0nLzg4MTIyLTcnKS5hbnN3ZXIudmFsdWUuY29kZSJ9fSx7InVybCI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi92YXJpYWJsZSIsInZhbHVlRXhwcmVzc2lvbiI6eyJuYW1lIjoicmFuT3V0QW5zQ29kZSIsImxhbmd1YWdlIjoidGV4dC9maGlycGF0aCIsImV4cHJlc3Npb24iOiIlcmVzb3VyY2UuaXRlbS53aGVyZShsaW5rSWQ9Jy84ODEyMy01JykuYW5zd2VyLnZhbHVlLmNvZGUifX0seyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vdmFyaWFibGUiLCJ2YWx1ZUV4cHJlc3Npb24iOnsibmFtZSI6InJpc2tDb2RlcyIsImxhbmd1YWdlIjoidGV4dC9maGlycGF0aCIsImV4cHJlc3Npb24iOiInTEEyODM5Ny0wJy5jb21iaW5lKCdMQTY3MjktMycpIn19LHsidXJsIjoiaHR0cDovL2hsNy5vcmcvZmhpci9TdHJ1Y3R1cmVEZWZpbml0aW9uL3ZhcmlhYmxlIiwidmFsdWVFeHByZXNzaW9uIjp7Im5hbWUiOiJyaXNrU3RhdHVzIiwibGFuZ3VhZ2UiOiJ0ZXh0L2ZoaXJwYXRoIiwiZXhwcmVzc2lvbiI6IiVyaXNrQ29kZXMgY29udGFpbnMgJXdvcnJpZWRBbnNDb2RlIG9yICVyaXNrQ29kZXMgY29udGFpbnMgJXJhbk91dEFuc0NvZGUifX0seyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vdmFyaWFibGUiLCJ2YWx1ZUV4cHJlc3Npb24iOnsibmFtZSI6ImFuc3dlcmVkRWl0aGVyUSIsImxhbmd1YWdlIjoidGV4dC9maGlycGF0aCIsImV4cHJlc3Npb24iOiIld29ycmllZEFuc0NvZGUuZXhpc3RzKCkgb3IgJXJhbk91dEFuc0NvZGUuZXhpc3RzKCkifX1dLCJpZGVudGlmaWVyIjpbeyJzeXN0ZW0iOiJodHRwOi8vd3d3Lm1heG1kZGlyZWN0LmNvbS9obDcvZmhpci9ncnYtbG9jYWxpLXNjcmVlbmluZ3MiLCJ2YWx1ZSI6ImxvY2FsLWVoci02NWQzMTBiOC02MjM1LTRmNDctOGQ0NSJ9XSwibmFtZSI6IkZvb2QgSW5zZWN1cml0eSAoSHVuZ2VyIFZpdGFsIFNpZ24pIiwidGl0bGUiOiJGb29kIEluc2VjdXJpdHkiLCJzdGF0dXMiOiJhY3RpdmUiLCJzdWJqZWN0VHlwZSI6WyJQYXRpZW50Il0sImRhdGUiOiIyMDE5LTEyLTAzVDE2OjA5OjU0LjQ0NVoiLCJlZmZlY3RpdmVQZXJpb2QiOnsic3RhcnQiOiIyMDE5LTEyLTEyVDExOjUyOjAxLTA1OjAwIiwiZW5kIjoiMjAxOS0xMi0yMlQxODo0OToxNC0wNTowMCJ9LCJpdGVtIjpbeyJleHRlbnNpb24iOlt7InVybCI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi9xdWVzdGlvbm5haXJlLWl0ZW1Db250cm9sIiwidmFsdWVDb2RlYWJsZUNvbmNlcHQiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vaGw3Lm9yZy9maGlyL3F1ZXN0aW9ubmFpcmUtaXRlbS1jb250cm9sIiwiY29kZSI6ImRyb3AtZG93biIsImRpc3BsYXkiOiJEcm9wIGRvd24ifV0sInRleHQiOiJEcm9wIGRvd24ifX1dLCJsaW5rSWQiOiIvODgxMjItNyIsImNvZGUiOlt7ImNvZGUiOiI4ODEyMi03IiwiZGlzcGxheSI6IldpdGhpbiB0aGUgcGFzdCAxMk1vIHdlIHdvcnJpZWQgd2hldGhlciBvdXIgZm9vZCB3b3VsZCBydW4gb3V0IGJlZm9yZSB3ZSBnb3QgbW9uZXkgdG8gYnV5IG1vcmUifV0sInRleHQiOiJXaXRoaW4gdGhlIHBhc3QgMTJNbyB3ZSB3b3JyaWVkIHdoZXRoZXIgb3VyIGZvb2Qgd291bGQgcnVuIG91dCBiZWZvcmUgd2UgZ290IG1vbmV5IHRvIGJ1eSBtb3JlIiwidHlwZSI6ImNob2ljZSIsInJlcXVpcmVkIjpmYWxzZSwiYW5zd2VyT3B0aW9uIjpbeyJ2YWx1ZUNvZGluZyI6eyJjb2RlIjoiTEEyODM5Ny0wIiwiZGlzcGxheSI6Ik9mdGVuIHRydWUifX0seyJ2YWx1ZUNvZGluZyI6eyJjb2RlIjoiTEE2NzI5LTMiLCJkaXNwbGF5IjoiU29tZXRpbWVzIHRydWUifX0seyJ2YWx1ZUNvZGluZyI6eyJjb2RlIjoiTEEyODM5OC04IiwiZGlzcGxheSI6Ik5ldmVyIHRydWUifX0seyJ2YWx1ZUNvZGluZyI6eyJjb2RlIjoiTEExNTc3NS0yIiwiZGlzcGxheSI6IkRvbid0IGtub3cvcmVmdXNlZCJ9fV19LHsiZXh0ZW5zaW9uIjpbeyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vcXVlc3Rpb25uYWlyZS1pdGVtQ29udHJvbCIsInZhbHVlQ29kZWFibGVDb25jZXB0Ijp7ImNvZGluZyI6W3sic3lzdGVtIjoiaHR0cDovL2hsNy5vcmcvZmhpci9xdWVzdGlvbm5haXJlLWl0ZW0tY29udHJvbCIsImNvZGUiOiJkcm9wLWRvd24iLCJkaXNwbGF5IjoiRHJvcCBkb3duIn1dLCJ0ZXh0IjoiRHJvcCBkb3duIn19XSwibGlua0lkIjoiLzg4MTIzLTUiLCJjb2RlIjpbeyJjb2RlIjoiODgxMjMtNSIsImRpc3BsYXkiOiJXaXRoaW4gdGhlIHBhc3QgMTJNbyB0aGUgZm9vZCB3ZSBib3VnaHQganVzdCBkaWRuJ3QgbGFzdCBhbmQgd2UgZGlkbid0IGhhdmUgbW9uZXkgdG8gZ2V0IG1vcmUifV0sInRleHQiOiJXaXRoaW4gdGhlIHBhc3QgMTJNbyB0aGUgZm9vZCB3ZSBib3VnaHQganVzdCBkaWRuJ3QgbGFzdCBhbmQgd2UgZGlkbid0IGhhdmUgbW9uZXkgdG8gZ2V0IG1vcmUiLCJ0eXBlIjoiY2hvaWNlIiwicmVxdWlyZWQiOmZhbHNlLCJhbnN3ZXJPcHRpb24iOlt7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTI4Mzk3LTAiLCJkaXNwbGF5IjoiT2Z0ZW4gdHJ1ZSJ9fSx7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTY3MjktMyIsImRpc3BsYXkiOiJTb21ldGltZXMgdHJ1ZSJ9fSx7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTI4Mzk4LTgiLCJkaXNwbGF5IjoiTmV2ZXIgdHJ1ZSJ9fSx7InZhbHVlQ29kaW5nIjp7ImNvZGUiOiJMQTE1Nzc1LTIiLCJkaXNwbGF5IjoiRG9uJ3Qga25vdy9yZWZ1c2VkIn19XX0seyJleHRlbnNpb24iOlt7InVybCI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi9xdWVzdGlvbm5haXJlLW9ic2VydmF0aW9uTGlua1BlcmlvZCIsInZhbHVlQm9vbGVhbiI6dHJ1ZX0seyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vcXVlc3Rpb25uYWlyZS1pdGVtQ29udHJvbCIsInZhbHVlQ29kZWFibGVDb25jZXB0Ijp7ImNvZGluZyI6W3sic3lzdGVtIjoiaHR0cDovL2hsNy5vcmcvZmhpci9xdWVzdGlvbm5haXJlLWl0ZW0tY29udHJvbCIsImNvZGUiOiJkcm9wLWRvd24iLCJkaXNwbGF5IjoiRHJvcCBkb3duIn1dLCJ0ZXh0IjoiRHJvcCBkb3duIn19LHsidXJsIjoiaHR0cDovL2hsNy5vcmcvZmhpci9TdHJ1Y3R1cmVEZWZpbml0aW9uL3ZhcmlhYmxlIiwidmFsdWVFeHByZXNzaW9uIjp7Im5hbWUiOiJ0aGlzSXRlbSIsImxhbmd1YWdlIjoidGV4dC9maGlycGF0aCIsImV4cHJlc3Npb24iOiIlcXVlc3Rpb25uYWlyZS5pdGVtLndoZXJlKGxpbmtJZCA9ICcvODgxMjQtMycpIn19LHsidXJsIjoiaHR0cDovL2hsNy5vcmcvZmhpci9TdHJ1Y3R1cmVEZWZpbml0aW9uL3ZhcmlhYmxlIiwidmFsdWVFeHByZXNzaW9uIjp7Im5hbWUiOiJhdFJpc2tDb2RpbmciLCJsYW5ndWFnZSI6InRleHQvZmhpcnBhdGgiLCJleHByZXNzaW9uIjoiJXRoaXNJdGVtLmFuc3dlck9wdGlvbi52YWx1ZUNvZGluZy53aGVyZShjb2RlPSdMQTE5OTUyLTMnKSJ9fSx7InVybCI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi92YXJpYWJsZSIsInZhbHVlRXhwcmVzc2lvbiI6eyJuYW1lIjoibm9SaXNrQ29kaW5nIiwibGFuZ3VhZ2UiOiJ0ZXh0L2ZoaXJwYXRoIiwiZXhwcmVzc2lvbiI6IiV0aGlzSXRlbS5hbnN3ZXJPcHRpb24udmFsdWVDb2Rpbmcud2hlcmUoY29kZT0nTEExOTk4My04JykifX0seyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vcXVlc3Rpb25uYWlyZS1jYWxjdWxhdGVkRXhwcmVzc2lvbiIsInZhbHVlRXhwcmVzc2lvbiI6eyJkZXNjcmlwdGlvbiI6InJpc2sgZGV0ZXJtaW5hdGlvbiIsImxhbmd1YWdlIjoidGV4dC9maGlycGF0aCIsImV4cHJlc3Npb24iOiJpaWYoJWFuc3dlcmVkRWl0aGVyUSwgaWlmKCVyaXNrU3RhdHVzLCAlYXRSaXNrQ29kaW5nLCAlbm9SaXNrQ29kaW5nKSwge30pIn19XSwibGlua0lkIjoiLzg4MTI0LTMiLCJjb2RlIjpbeyJjb2RlIjoiODgxMjQtMyIsImRpc3BsYXkiOiJGb29kIGluc2VjdXJpdHkgcmlzayJ9XSwidGV4dCI6IkZvb2QgaW5zZWN1cml0eSByaXNrIiwidHlwZSI6ImNob2ljZSIsInJlcXVpcmVkIjpmYWxzZSwicmVhZE9ubHkiOnRydWUsImFuc3dlck9wdGlvbiI6W3sidmFsdWVDb2RpbmciOnsiY29kZSI6IkxBMTk5NTItMyIsImRpc3BsYXkiOiJBdCByaXNrIn19LHsidmFsdWVDb2RpbmciOnsiY29kZSI6IkxBMTk5ODMtOCIsImRpc3BsYXkiOiJObyByaXNrIn19XSwiaXRlbSI6W3siZXh0ZW5zaW9uIjpbeyJ1cmwiOiJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vcXVlc3Rpb25uYWlyZS1pdGVtQ29udHJvbCIsInZhbHVlQ29kZWFibGVDb25jZXB0Ijp7ImNvZGluZyI6W3sic3lzdGVtIjoiaHR0cDovL2hsNy5vcmcvZmhpci9xdWVzdGlvbm5haXJlLWl0ZW0tY29udHJvbCIsImNvZGUiOiJoZWxwIiwiZGlzcGxheSI6IkhlbHAtQnV0dG9uIn1dLCJ0ZXh0IjoiSGVscC1CdXR0b24ifX1dLCJsaW5rSWQiOiIvODgxMjQtMy1oZWxwIiwidGV4dCI6IkFuIGFuc3dlciBvZiBcIm9mdGVuIHRydWVcIiBvciBcInNvbWV0aW1lcyB0cnVlXCIgdG8gZWl0aGVyIG9yIGJvdGggb2YgdGhlIEh1bmdlciBWaXRhbCBTaWdu4oSiIHF1ZXN0aW9ucyBpZGVudGlmaWVzIGEgcGF0aWVudCBhcyBhdCByaXNrIGZvciBmb29kIGluc2VjdXJpdHkgKEZJKS4iLCJ0eXBlIjoiZGlzcGxheSJ9XX1dfX1dfQ=="
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Binary"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:76a852c5-4ccf-4700-b856-02ab0023a5f5",
+      "resource" : {
+        "resourceType" : "DocumentReference",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>type</b>: Within the past 12Mo we worried whether our food would run out before we got money to buy more <span style=\"background: LightGoldenRodYellow\">(Details : {[not stated] code '88122-7' = '88122-7', given as 'Within the past 12Mo we worried whether our food would run out before we got money to buy more'})</span></p><p><b>subject</b>: <a href=\"Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01\">Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01</a></p><p><b>date</b>: Mar 6, 2020, 8:43:28 PM</p><p><b>description</b>: Food Insecurity (Hunger Vital Sign)</p><blockquote><p><b>content</b></p><p><b>attachment</b>: </p></blockquote><blockquote><p><b>content</b></p><p><b>attachment</b>: </p></blockquote></div>"
+        },
+        "type" : {
+          "coding" : [
+            {
+              "code" : "88122-7",
+              "display" : "Within the past 12Mo we worried whether our food would run out before we got money to buy more"
+            }
+          ]
+        },
+        "subject" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "date" : "2020-03-06T15:43:28.819-05:00",
+        "description" : "Food Insecurity (Hunger Vital Sign)",
+        "content" : [
+          {
+            "attachment" : {
+              "contentType" : "application/json",
+              "url" : "Binary/5121ccc2-5ee0-4fe5-a428-9f11ad8bd30d"
+            }
+          },
+          {
+            "attachment" : {
+              "contentType" : "application/json",
+              "url" : "Composition/af3375e1-98b5-4c6d-b7bb-817a0e0fbdb8"
+            }
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "DocumentReference"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:269f3ef3-7720-41f9-9a00-809fb380b202",
+      "resource" : {
+        "resourceType" : "Device",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: Local-1</p><p><b>status</b>: active</p><h3>DeviceNames</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td></tr><tr><td>*</td><td>MaxMD APP</td></tr></table></div>"
+        },
+        "identifier" : [
+          {
+            "system" : "https://www.maxmddirect.com/fhir/identifier/sdc/app/deviceId",
+            "value" : "Local-1"
+          }
+        ],
+        "status" : "active",
+        "deviceName" : [
+          {
+            "name" : "MaxMD APP"
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Device",
+        "ifNoneExist" : "Device?identifier=identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2Fapp%2FdeviceId%7CLocal-1"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:af3375e1-98b5-4c6d-b7bb-817a0e0fbdb8",
+      "resource" : {
+        "resourceType" : "Composition",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>type</b>: Within the past 12Mo we worried whether our food would run out before we got money to buy more <span style=\"background: LightGoldenRodYellow\">(Details : {[not stated] code '88122-7' = '88122-7', given as 'Within the past 12Mo we worried whether our food would run out before we got money to buy more'})</span></p><p><b>title</b>: Food Insecurity (Hunger Vital Sign)</p></div>"
+        },
+        "type" : {
+          "coding" : [
+            {
+              "code" : "88122-7",
+              "display" : "Within the past 12Mo we worried whether our food would run out before we got money to buy more"
+            }
+          ]
+        },
+        "subject" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "title" : "Food Insecurity (Hunger Vital Sign)",
+        "section" : [
+          {
+            "title" : "Social History",
+            "code" : {
+              "coding" : [
+                {
+                  "system" : "http://loinc.org",
+                  "code" : "10210-3"
+                }
+              ],
+              "text" : "General status"
+            },
+            "text" : {
+              "status" : "generated",
+              "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"> <p>Consent </p><p><div xmlns=\"http://www.w3.org/1999/xhtml\">\r\n        PMEHR Demo has permission to collect and share the SDOH Screening information gathered by this questionnaire with the organization initiating the screening request.\r\n    The information may be used for treatment, payment, and operations in support of care being delivered for this patient.\r\n\r\n\r\n</div></p>\n<p> Food Insecurity - Questionnaire Response </p> <table> <tbody><tr> <th> Within the past 12Mo we worried whether our food would run out before we got money to buy more </th>  <td> Never true </td> </tr><tr> <th> Within the past 12Mo the food we bought just didn't last and we didn't have money to get more </th>  <td> Don't know/refused </td> </tr><tr> <th> Food insecurity risk </th>  <td> No risk </td> </tr></tbody> </table></div>"
+            },
+            "entry" : [
+              {
+                "reference" : "urn:uuid:c11fdd4a-864e-4d2d-aeda-a09110e7d4ef"
+              },
+              {
+                "reference" : "urn:uuid:5e6e4a27-8b92-41bd-b732-5871c8d40275"
+              }
+            ]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Composition"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:5e6e4a27-8b92-41bd-b732-5871c8d40275",
+      "resource" : {
+        "resourceType" : "QuestionnaireResponse",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: 91</p><p><b>questionnaire</b>: <a href=\"Questionnaire/17d3c570-28de-4aa3-a135-e35d0932a4ec\">Questionnaire/17d3c570-28de-4aa3-a135-e35d0932a4ec</a></p><p><b>status</b>: completed</p><p><b>subject</b>: <a href=\"Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01\">Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01</a></p><p><b>authored</b>: Mar 6, 2020, 8:43:25 PM</p><p><b>author</b>: <a href=\"#urnuuid269f3ef3-7720-41f9-9a00-809fb380b202\">Generated Summary: unknown resource entry</a></p><p><b>source</b>: <a href=\"Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01\">Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01</a></p><blockquote><p><b>item</b></p><p><b>linkId</b>: /88122-7</p><p><b>text</b>: Within the past 12Mo we worried whether our food would run out before we got money to buy more</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Never true (Details: [not stated] code LA28398-8 = 'LA28398-8', stated as 'Never true')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: /88123-5</p><p><b>text</b>: Within the past 12Mo the food we bought just didn't last and we didn't have money to get more</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Don't know/refused (Details: [not stated] code LA15775-2 = 'LA15775-2', stated as 'Don't know/refused')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: /88124-3</p><p><b>text</b>: Food insecurity risk</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>No risk (Details: [not stated] code LA19983-8 = 'LA19983-8', stated as 'No risk')</td></tr></table></blockquote></div>"
+        },
+        "identifier" : {
+          "system" : "https://www.maxmddirect.com/fhir/identifier/sdc/userFormId",
+          "value" : "91"
+        },
+        "questionnaire" : "Questionnaire/17d3c570-28de-4aa3-a135-e35d0932a4ec",
+        "status" : "completed",
+        "subject" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "authored" : "2020-03-06T20:43:25.498Z",
+        "author" : {
+          "reference" : "urn:uuid:269f3ef3-7720-41f9-9a00-809fb380b202"
+        },
+        "source" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "item" : [
+          {
+            "linkId" : "/88122-7",
+            "text" : "Within the past 12Mo we worried whether our food would run out before we got money to buy more",
+            "answer" : [
+              {
+                "valueCoding" : {
+                  "code" : "LA28398-8",
+                  "display" : "Never true"
+                }
+              }
+            ]
+          },
+          {
+            "linkId" : "/88123-5",
+            "text" : "Within the past 12Mo the food we bought just didn't last and we didn't have money to get more",
+            "answer" : [
+              {
+                "valueCoding" : {
+                  "code" : "LA15775-2",
+                  "display" : "Don't know/refused"
+                }
+              }
+            ]
+          },
+          {
+            "linkId" : "/88124-3",
+            "text" : "Food insecurity risk",
+            "answer" : [
+              {
+                "valueCoding" : {
+                  "code" : "LA19983-8",
+                  "display" : "No risk"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "QuestionnaireResponse"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:c11fdd4a-864e-4d2d-aeda-a09110e7d4ef",
+      "resource" : {
+        "resourceType" : "Consent",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\r\n        PMEHR Demo has permission to collect and share the SDOH Screening information gathered by this questionnaire with the organization initiating the screening request.\r\n    The information may be used for treatment, payment, and operations in support of care being delivered for this patient.\r\n\r\n\r\n</div>"
+        },
+        "status" : "active",
+        "scope" : {
+          "coding" : [
+            {
+              "system" : "http://terminology.hl7.org/CodeSystem/consentscope",
+              "code" : "patient-privacy",
+              "display" : "Privacy Consent"
+            }
+          ]
+        },
+        "category" : [
+          {
+            "coding" : [
+              {
+                "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code" : "ICOL",
+                "display" : "information collection"
+              }
+            ]
+          }
+        ],
+        "patient" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "dateTime" : "2020-03-06T14:43:26-06:00",
+        "sourceReference" : {
+          "reference" : "urn:uuid:5e6e4a27-8b92-41bd-b732-5871c8d40275"
+        }
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Consent"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:7779e7ad-4f33-42b1-8810-dfb3ab5f44cf",
+      "resource" : {
+        "resourceType" : "Communication",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>basedOn</b>: <a href=\"CommunicationRequest?identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2FcommunicationRequest%7Ctask-1583527207\">CommunicationRequest?identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2FcommunicationRequest%7Ctask-1583527207</a></p><p><b>status</b>: completed</p><p><b>category</b>: Solicated Communication <span style=\"background: LightGoldenRodYellow\">(Details : {https://www.maxmddirect.com/fhir/CodeSystem/communication-category code 'Solicated-Screen-Response' = 'Solicated-Screen-Response)</span></p></div>"
+        },
+        "basedOn" : [
+          {
+            "reference" : "CommunicationRequest?identifier=https%3A%2F%2Fwww.maxmddirect.com%2Ffhir%2Fidentifier%2Fsdc%2FcommunicationRequest%7Ctask-1583527207"
+          }
+        ],
+        "status" : "completed",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "system" : "https://www.maxmddirect.com/fhir/CodeSystem/communication-category",
+                "code" : "Solicated-Screen-Response"
+              }
+            ],
+            "text" : "Solicated Communication"
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Communication"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:71c34be5-c8dc-4b77-bf4f-86bed104e68f",
+      "resource" : {
+        "resourceType" : "Observation",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>status</b>: final</p><p><b>code</b>: Food insecurity risk <span style=\"background: LightGoldenRodYellow\">(Details : {[not stated] code '88124-3' = '88124-3', given as 'Food insecurity risk'})</span></p><p><b>subject</b>: <a href=\"Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01\">Patient?given=Alice&amp;family=Newman&amp;address-postalcode=97006&amp;birthdate=1970-05-01</a></p><p><b>effective</b>: Mar 6, 2020, 8:43:25 PM</p><p><b>issued</b>: Mar 6, 2020, 8:43:25 PM</p><p><b>value</b>: No risk <span style=\"background: LightGoldenRodYellow\">(Details : {[not stated] code 'LA19983-8' = 'LA19983-8', given as 'No risk'})</span></p><p><b>derivedFrom</b>: <a href=\"#urnuuid5e6e4a27-8b92-41bd-b732-5871c8d40275\">Generated Summary: unknown resource entry</a></p></div>"
+        },
+        "status" : "final",
+        "code" : {
+          "coding" : [
+            {
+              "code" : "88124-3",
+              "display" : "Food insecurity risk"
+            }
+          ],
+          "text" : "Food insecurity risk"
+        },
+        "subject" : {
+          "reference" : "Patient?given=Alice&family=Newman&address-postalcode=97006&birthdate=1970-05-01"
+        },
+        "effectiveDateTime" : "2020-03-06T20:43:25.498Z",
+        "issued" : "2020-03-06T20:43:25.498Z",
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "LA19983-8",
+              "display" : "No risk"
+            }
+          ],
+          "text" : "No risk"
+        },
+        "derivedFrom" : [
+          {
+            "reference" : "urn:uuid:5e6e4a27-8b92-41bd-b732-5871c8d40275"
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Observation"
+      }
+    }
+  ]
+}
