@@ -15,7 +15,7 @@ import SurveyPage from './client/SurveyPage';
 let DynamicRoutes = [{
   'name': 'StructuredDataCapturePage',
   'path': '/structured-data-capture',
-  'component': StructuredDataCaptureWorkflowTabs
+  'component': StructuredDataCapturePage
 }, {
   'name': 'SurveyPage',
   'path': '/survey',

@@ -20,14 +20,14 @@ import {
 } from '@material-ui/core';
 
 
-import { get, has, uniq, compact } from 'lodash';
+import { get, has, uniq, compact, cloneDeep } from 'lodash';
 import moment from 'moment';
 
-// import { ReactMeteorData } from 'meteor/react-meteor-data';
+// import { ReactMeteorData, useTracker } from 'meteor/react-meteor-data';
 // import ReactMixin from 'react-mixin';
 import PropTypes from 'prop-types';
 
-import { Questionnaires } from 'meteor/clinical:hl7-fhir-data-infrastructure';
+import { useTracker, Questionnaires } from 'meteor/clinical:hl7-fhir-data-infrastructure';
 
 import { Session } from 'meteor/session';
 import {
@@ -35,10 +35,6 @@ import {
   SortableElement,
   arrayMove,
 } from 'react-sortable-hoc';
-
-import  { useTracker } from './Tracker';
-
-
 
 
 let defaultQuestionnaire = {
@@ -120,27 +116,47 @@ function SurveyExpansionPanels(props){
   // ================================================================================
   // Startup
 
-  useEffect(function(){
-    if(selectedQuestionnaire){
+  if(selectedQuestionnaire){
 
-      responseTemplate.questionnaire = "Questionnaire/" + selectedQuestionnaireId;
-      responseTemplate.item = get(selectedQuestionnaire, 'item', []);
+    responseTemplate.questionnaire = "Questionnaire/" + selectedQuestionnaireId;
+    responseTemplate.item = get(selectedQuestionnaire, 'item', []);
 
-      if(Array.isArray(responseTemplate.item)){
-        responseTemplate.item.forEach(function(sectionItem, index){
-          sectionItem.answer = [];
+    if(Array.isArray(responseTemplate.item)){
+      responseTemplate.item.forEach(function(sectionItem, index){
+        sectionItem.answer = [];
 
-          if(Array.isArray(sectionItem.item)){
-            sectionItem.item.forEach(function(question, questionIndex){
-              question.answer = [];
-            });
-          }  
-        })
-      }
-  
-      setDraftResponse(responseTemplate);
+        if(Array.isArray(sectionItem.item)){
+          sectionItem.item.forEach(function(question, questionIndex){
+            question.answer = [];
+          });
+        }  
+      })
     }
-  }, [props.lastUpdated])
+
+    // setDraftResponse(responseTemplate);
+  }
+
+  // useEffect(function(){
+  //   if(selectedQuestionnaire){
+
+  //     responseTemplate.questionnaire = "Questionnaire/" + selectedQuestionnaireId;
+  //     responseTemplate.item = get(selectedQuestionnaire, 'item', []);
+
+  //     if(Array.isArray(responseTemplate.item)){
+  //       responseTemplate.item.forEach(function(sectionItem, index){
+  //         sectionItem.answer = [];
+
+  //         if(Array.isArray(sectionItem.item)){
+  //           sectionItem.item.forEach(function(question, questionIndex){
+  //             question.answer = [];
+  //           });
+  //         }  
+  //       })
+  //     }
+  
+  //     setDraftResponse(responseTemplate);
+  //   }
+  // }, [props.lastUpdated])
 
   // useEffect(function(){
   //   console.log('draftResponse[lastUpdated]', draftResponse)
@@ -160,52 +176,95 @@ function SurveyExpansionPanels(props){
 
   let styles = {
     identifier: {
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      maxWidth: '100px',
+      textOverflow: 'elipsis',
+      overflow: 'hidden',
+      display: 'flex'
     },
     description: {
-      position: 'absolute',
-      marginLeft: '120px'
+      position: 'relative',
+      marginLeft: '20px',
+      marginRight: '20px'
     },
     expansionPanel: {
-      marginRight: '40px'
+      //marginRight: '40px'
+    },
+    summary: {
+      content: {
+        alignItems: 'center',
+        verticalAlign: 'middle'  
+      }
     }
   }
 
+  let noWrap = false;
+  if(window.innerWidth < 768){
+    styles.expansionPanel.marginRight = '0px'
+    styles.identifier.display = 'none'
+    styles.description.maxWidth = (window.innerWidth - 100) + 'px'
+    styles.description.marginLeft = '0px'
+    styles.description.marginRight = '0px'
+    styles.description.marginTop = '-10px'
+    styles.summary.content.verticalAlign = 'top';
+    styles.summary.content.height = '56px'
+    noWrap = true;
+  }
+
+
+
   let questionPanels = [];
 
-  function handleToggleItem(selectedLinkId, selectedValueCoding, event){
-    console.log('handleToggleItem', selectedLinkId, selectedValueCoding)
-    console.log('handleToggleItem.draftResponse', draftResponse)
+  function handleToggleItem(selectedLinkId, selectedValueCoding){
+    console.log('----------------------------------------------------------------------------')
+    console.log('SurveyExpansionPanels.handleToggleItem', selectedLinkId, selectedValueCoding)
+    console.log('SurveyExpansionPanels.handleToggleItem.draftResponse', draftResponse)
 
-    let newResponse = draftResponse;
+    let newResponse = cloneDeep(draftResponse);
     
-    if(Array.isArray(draftResponse.item)){
-      newResponse.item.forEach(function(sectionItem, renderItemIndex){        
+    
+    if(Array.isArray(newResponse.item)){
+      newResponse.item.forEach(function(sectionItem, sectionItemIndex){       
         
-        if(sectionItem.linkId === selectedLinkId){
-          sectionItem.answer = [];
-          sectionItem.answer.push({
+        console.log('sectionItem.linkId', get(sectionItem, 'linkId'))
+        let newSectionAnswer = [];
+        
+        if(get(sectionItem, 'linkId') === selectedLinkId){
+          console.log('match!')
+          newSectionAnswer.push({
             valueCoding: selectedValueCoding
           })
-        } else {
-          if(Array.isArray(sectionItem.item)){
-            sectionItem.item.forEach(function(question, questionIndex){
-              if(question.linkId === selectedLinkId){
-                question.answer = [];
-                question.answer.push({
-                  valueCoding: selectedValueCoding
-                })
-              }
-            })            
-          }
-        }              
+          console.log('newSectionAnswer!', newSectionAnswer);
+
+          let newSectionItem = newResponse.item[sectionItemIndex];
+          delete newSectionItem.answer;
+          newSectionItem.answer = newSectionAnswer;
+          console.log('newSectionItem!', newSectionItem);
+
+          newResponse.item[sectionItemIndex] = newSectionItem;
+          console.log('newResponse!', newResponse)
+          Session.set('draftQuestionnaireResponse', newResponse)
+
+        } else if(Array.isArray(sectionItem.item)){
+          sectionItem.item.forEach(function(question, questionIndex){
+
+            let newQuestionAnswer = [];
+            if(get(question, 'linkId') === selectedLinkId){
+              console.log('question match!')
+              newQuestionAnswer.push({
+                valueCoding: selectedValueCoding
+              })
+              newResponse.item[sectionItemIndex].item[questionIndex].answer = newQuestionAnswer;
+            }
+          })            
+        }        
+        
       })
-    }
-    
-    console.log('newResponse', newResponse)
-    Session.set('lastUpdated', new Date())
-    Session.set('draftQuestionnaireResponse', newResponse)
-    setDraftResponse(newResponse)
+
+      console.log('SurveyExpansionPanels.handleToggleItem.newResponse', newResponse)
+      Session.set('lastUpdated', new Date())
+      setDraftResponse(newResponse) 
+    }    
   }
 
   function handleToggleCheckbox(renderItemIndex, event, newValue){
@@ -236,6 +295,9 @@ function SurveyExpansionPanels(props){
   }
 
   function generateAnswerOptions(answerChoices, currentQuestion){
+    // console.log('----------------------------------------------------------------------------')
+    // console.log('SurveyExpansionPanels.generateAnswerOptions')
+
     if(Array.isArray(currentQuestion.answerOption)){
 
       // does this section element have answers?            
@@ -243,7 +305,7 @@ function SurveyExpansionPanels(props){
         // for each answer we render, we are going to need to figure out 
         // if the answer has been selected
         currentQuestion.answerOption.forEach(function(option, index){
-          // console.log('QuestionnaireExpansionPanels.answerOptions.option', option)
+          // console.log('SurveyExpansionPanels.answerOptions.option', option)
 
           let optionIsChecked = false;
 
@@ -269,7 +331,7 @@ function SurveyExpansionPanels(props){
 
   // we're going to get a question, along with the indices for where it exists in the hierarcy, up to two levels deep
   function parseQuestion(sectionIndex, questionIndex){
-    console.log('Parsing questions', sectionIndex, questionIndex, draftResponse)
+    console.log('Parsing questions', sectionIndex, questionIndex)
     let answerChoices = [];  
 
     let queryPluckString = "";
@@ -337,7 +399,12 @@ function SurveyExpansionPanels(props){
   // Kludge: In the meantime, we have this gnarly thing to deal with
 
   // do we have question items to display in expansion panels
-  console.log('draftResponse (pre main render)', draftResponse)
+  console.log('===========================================================================================')
+  console.log('SurveyExpansionPanels.selectedQuestionnaire', selectedQuestionnaire)
+  console.log('SurveyExpansionPanels.draftResponse (pre main render)', draftResponse)
+
+  
+
   if(draftResponse){
     if(Array.isArray(draftResponse.item)){
       draftResponse.item.forEach(function(renderItem, renderItemIndex){
@@ -349,12 +416,16 @@ function SurveyExpansionPanels(props){
         // looks like we have actual questions
         if(Array.isArray(renderItem.answerOption)){
           answerChoices = parseQuestion(renderItemIndex, -1);
+
+          let expanded;
+          if(typeof props.autoExpand === "boolean"){
+            expanded = props.autoExpand;
+          }
   
-          questionPanels.push(<ExpansionPanel style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} >
-              <Typography className="measure-identifier" style={styles.identifier}>{get(renderItem, 'linkId', renderItemIndex)}</Typography>
-              {/* <Typography id="panel-m2-measure-score" className="measure-score" style={styles.score}>{get(item, 'type')}</Typography>             */}
-              <Typography className="measure-description" style={styles.description}>
+          questionPanels.push(<ExpansionPanel expanded={expanded} style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"}  style={styles.summary} >
+              {/* <Typography className="measure-identifier" style={styles.identifier}>{get(renderItem, 'linkId', renderItemIndex)}</Typography>               */}
+              <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
                 {get(renderItem, 'text')}
               </Typography>
             </ExpansionPanelSummary>
@@ -367,16 +438,12 @@ function SurveyExpansionPanels(props){
   
         } else {
           // section titles
-
-          let itemArray = get(checkboxChecked, 'item');
-          let itemChecked = itemArray[renderItemIndex];
-          console.log('itemChecked', itemChecked, checkboxChecked);
-
+          console.log('SurveyExpansionPanels.sectionTitle', get(renderItem, 'text'))
+          
           questionPanels.push(<ExpansionPanel style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} >
-              <Typography className="measure-identifier" style={styles.identifier}>{get(renderItem, 'linkId', renderItemIndex)}</Typography>
-              <Typography className="measure-description" style={styles.description}>
-                {/* <Checkbox checked={itemChecked} onChange={handleToggleCheckbox.bind(this, renderItemIndex)} />  */}
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
+              {/* <Typography className="measure-identifier" style={styles.identifier}>{get(renderItem, 'linkId', renderItemIndex)}</Typography> */}
+              <Typography className="measure-description" style={styles.description} noWrap={noWrap} >
                 {get(renderItem, 'text')}
               </Typography>
             </ExpansionPanelSummary>            
@@ -384,16 +451,16 @@ function SurveyExpansionPanels(props){
         } 
         
         if (Array.isArray(renderItem.item)){
+
           // no answers options available, so assume we have section headers
           renderItem.item.forEach(function(question, questionIndex){
-            console.log('QuestionnaireExpansionPanels.renderItem.question', question)
+            console.log('SurveyExpansionPanels.renderItem.question', question)
             answerChoices = parseQuestion(renderItemIndex, questionIndex);
   
               questionPanels.push(<ExpansionPanel style={styles.expansionPanel} key={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-content'} id={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-header'} >
-                  <Typography className="measure-identifier" style={styles.identifier}>{get(question, 'linkId', questionIndex)}</Typography>
-                  {/* <Typography id="panel-m2-measure-score" className="measure-score" style={styles.score}>{get(item, 'type')}</Typography>             */}
-                  <Typography className="measure-description" style={styles.description}>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-content'} id={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-header'} style={styles.summary}  >
+                  {/* <Typography className="measure-identifier" style={styles.identifier}>{get(question, 'linkId', questionIndex)}</Typography> */}
+                  <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
                     {get(question, 'text')}
                   </Typography>
                 </ExpansionPanelSummary>
@@ -411,7 +478,7 @@ function SurveyExpansionPanels(props){
 
   return (
     <div id={ get(this, 'props.id', '')} className="questionnaireDetail">
-      <div id='questionnaireDocument'>
+      <div id='SurveyExpansionPanels'>
         { questionPanels }
       </div>
     </div>
@@ -421,11 +488,13 @@ function SurveyExpansionPanels(props){
 SurveyExpansionPanels.propTypes = {
   selectedQuestionnaire: PropTypes.object,
   selectedQuestionnaireId: PropTypes.string,
-  sortableItems: PropTypes.array
+  sortableItems: PropTypes.array,
+  autoExpand: PropTypes.bool
 };
 
 SurveyExpansionPanels.defaultProps = {
-  selectedQuestionnaire: null
+  selectedQuestionnaire: null,
+  autoExpand: null
 }
 
 export default SurveyExpansionPanels;
