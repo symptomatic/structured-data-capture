@@ -1,6 +1,6 @@
 Package.describe({
   name: 'symptomatic:structured-data-capture',
-  version: '0.6.0',
+  version: '0.6.1',
   summary: 'Structured Document Capture',
   git: 'https://github.com/symptomatic/gravity',
   documentation: 'README.md'
@@ -23,10 +23,9 @@ Package.onUse(function(api) {
   api.addFiles('lib/Collections.js');
 
   
-  api.use('symptomatic:data-management');
   api.use('symptomatic:fhir-uscore');
   api.use('symptomatic:vault-server-freemium');
-  api.use('clinical:hl7-fhir-data-infrastructure@6.5.3');
+  api.use('clinical:hl7-fhir-data-infrastructure@6.14.14');
 
   // api.use('symptomatic:vault-server@6.2.1');
   // api.imply('symptomatic:vault-server@6.2.1');

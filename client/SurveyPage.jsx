@@ -17,7 +17,7 @@ import {
   FormControlLabel,
 } from '@material-ui/core';
 
-import { StyledCard, PageCanvas } from 'material-fhir-ui';
+import { StyledCard, PageCanvas, FhirUtilities } from 'fhir-starter';
 import SurveyExpansionPanels from './SurveyExpansionPanels';
 // import SortableQuestionnaire from './SortableQuestionnaire';
 
@@ -32,7 +32,7 @@ import { Random } from 'meteor/random';
 import { Meteor } from 'meteor/meteor';
 
 import moment from 'moment';
-import { get } from 'lodash';
+import { get, has, set } from 'lodash';
 
 let defaultQuestionnaire = {
   index: 2,
@@ -197,7 +197,8 @@ export function SurveyPage(props){
     onePageLayout: true,
     questionnaires: Questionnaires.find().fetch(),
     questionnairesCount: Questionnaires.find().count(), 
-    questionnaireSearchFilter: {}
+    questionnaireSearchFilter: {},
+    selectedPatient: null
   };
 
   data.tabIndex = useTracker(function(){
@@ -208,8 +209,8 @@ export function SurveyPage(props){
     return Session.get('enableCurrentQuestionnaire');
   }, [])
 
-  data.isSorting = useTracker(function(){
-    return Session.get('questionnaireIsSorting');
+  data.selectedPatient = useTracker(function(){
+    return Session.get('selectedPatient');
   }, [])
 
   data.activeQuestionLinkId = useTracker(function(){
@@ -235,6 +236,12 @@ export function SurveyPage(props){
   data.questionnaireSearchFilter = useTracker(function(){
     return Session.get('questionnaireSearchFilter');
   }, [])
+
+
+  let myCarePlan = useTracker(function(){
+    return CarePlans.findOne(FhirUtilities.addPatientFilterToQuery(get(Session.get('selectedPatient'), 'id'))); 
+  });
+
 
 
 
@@ -503,6 +510,9 @@ export function SurveyPage(props){
     if(data.draftQuestionnaireResponse){
       let newQuestionnaireResponse = data.draftQuestionnaireResponse;
 
+      set(newQuestionnaireResponse, 'subject', Meteor.currentUserReference())
+      set(newQuestionnaireResponse, 'author', Meteor.currentUserReference())
+
       console.log('Posting questionnaire response to external system...', newQuestionnaireResponse)
   
       let relayUrl = get(Meteor, 'settings.public.interfaces.fhirRelay.channel.endpoint', 'http://localhost:3000/baseR4') + '/QuestionnaireResponse';
@@ -518,6 +528,7 @@ export function SurveyPage(props){
           console.log('response', response)
         }
       })  
+      props.history.replace('/healthflow-home')
     } else {
       alert('No questionnaire response yet.')
     }
@@ -560,13 +571,12 @@ export function SurveyPage(props){
   let headerHeight = LayoutHelpers.calcHeaderHeight();
 
   return (
-    <PageCanvas id="questionnairesPage" headerHeight={headerHeight}>
-      
+    <PageCanvas id="questionnairesPage" headerHeight={headerHeight} paddingLeft={20} paddingRight={20} >
       <MuiThemeProvider theme={muiTheme} >
         <Grid container spacing={2} alignItems="center" alignContent="center" justify="center">
-          <Grid item md={6} >
+          <Grid item xs={12} md={6} >
             <Grid style={{position: 'sticky', top: '0px', margin: '20px', marginBottom: '84px'}}>
-              <h1 className="barcode helveticas">{ data.selectedQuestionnaireId}</h1>
+              <h1 className="barcode helveticas" style={{whiteSpace: 'nowrap'}}>{ data.selectedQuestionnaireId}</h1>
               <StyledCard margins={20}>
                 <CardContent>
                   <FormControl style={{width: '100%', marginTop: '20px'}}>
@@ -584,7 +594,7 @@ export function SurveyPage(props){
                   </FormControl>    
                   <Grid container spacing={8}>
 
-                    <Grid item md={3}>
+                    <Grid item xs={6} md={3}>
                       <FormControl style={{width: '100%', marginTop: '20px'}}>
                         <InputAdornment 
                           style={classes.label}
@@ -598,7 +608,7 @@ export function SurveyPage(props){
                         />       
                       </FormControl>    
                     </Grid>
-                    <Grid item md={3}>
+                    <Grid item xs={6} md={3}>
                       <FormControl style={{width: '100%', marginTop: '20px'}}>
                         <InputAdornment 
                           style={classes.label}
@@ -612,7 +622,7 @@ export function SurveyPage(props){
                         />       
                       </FormControl>    
                     </Grid>
-                    <Grid item md={6} >
+                    {/* <Grid item md={6} >
                       <FormControl style={{width: '100%', marginTop: '20px'}}>
                         <InputAdornment 
                           style={classes.label}
@@ -625,7 +635,7 @@ export function SurveyPage(props){
                           fullWidth              
                         />       
                       </FormControl>    
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </CardContent>
               </StyledCard>
