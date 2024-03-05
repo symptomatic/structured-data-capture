@@ -10,11 +10,11 @@ import Container from '@material-ui/core/Container';
 import { get } from 'lodash';
 import { Meteor } from 'meteor/meteor';
 
-import { PageCanvas, StyledCard } from 'material-fhir-ui';
+import { PageCanvas, StyledCard } from 'fhir-starter';
 
 import { CommunicationRequestsTable, TasksTable, ListsTable } from 'meteor/clinical:hl7-fhir-data-infrastructure';
 
-import { useTracker } from './Tracker';
+import { useTracker } from 'meteor/react-meteor-data';
 
 function DynamicSpacer(props){
   return <br className="dynamicSpacer" style={{height: '40px'}}/>;

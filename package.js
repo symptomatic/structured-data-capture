@@ -1,6 +1,6 @@
 Package.describe({
   name: 'symptomatic:structured-data-capture',
-  version: '0.6.1',
+  version: '0.6.2',
   summary: 'Structured Document Capture',
   git: 'https://github.com/symptomatic/gravity',
   documentation: 'README.md'
@@ -11,8 +11,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.4');
   
   api.use('meteor-base@1.4.0');
-  api.use('ecmascript@0.13.0');
-  api.use('react-meteor-data@2.1.2');
+  api.use('ecmascript@0.16.0');
+  api.use('react-meteor-data@2.4.0');
   api.use('session');
   api.use('mongo');
   api.use('http');
@@ -22,10 +22,12 @@ Package.onUse(function(api) {
 
   api.addFiles('lib/Collections.js');
 
+  api.addFiles('server/methods.js');
+
   
-  api.use('symptomatic:fhir-uscore');
-  api.use('symptomatic:vault-server-freemium');
-  api.use('clinical:hl7-fhir-data-infrastructure@6.14.14');
+  api.use('clinical:uscore');
+  api.use('clinical:vault-server');
+  api.use('clinical:hl7-fhir-data-infrastructure');
 
   // api.use('symptomatic:vault-server@6.2.1');
   // api.imply('symptomatic:vault-server@6.2.1');

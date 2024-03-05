@@ -1,0 +1,82 @@
+{
+    "resourceType": "DocumentReference",
+    "id": "PACP",
+    "meta": {
+        "versionId": "14",
+        "lastUpdated": "2022-08-02T18:25:58.185+00:00",
+        "source": "#Sfi1OcoY3jXZtX66",
+        "profile": [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/DocRefPACP"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "This clinical report is about a patient named Amy Shaw, also known as Patricia Noelle. The document, which was last updated on August 2, 2022, is specifically a Patient Personal Advance Care Plan. The document is currently active and falls under the category of Clinical Note. The report was authored by Dr. Henry Levin and Patricia Noelle on March 9, 2016. The context period of this record is from December 23, 2004, 08:00:00 to December 23, 2004, 08:01:00. It contains an attachment which is a text/plain format, found at /Binary/1-note. The document has been formatted according to the Care Management (CM) standard. Overall, the document primarily serves to detail Patricia Noelle's Personal Advance Care Plan."
+    },
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.19.5.99999.1"
+        }
+    ],
+    "status": "current",
+    "type": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "81334-5",
+                "display": "Patient Personal advance care plan"
+            }
+        ],
+        "text": "Patient Personal Advance Care Plan"
+    },
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                    "code": "clinical-note",
+                    "display": "Clinical Note"
+                }
+            ],
+            "text": "Clinical Note"
+        }
+    ],
+    "subject": {
+        "reference": "Patient/cc-pat-pnoelle",
+        "display": "Amy Shaw"
+    },
+    "date": "2016-03-09T15:29:46Z",
+    "author": [
+        {
+            "reference": "Practitioner/practitionerMCC-1",
+            "display": "Henry Levin, MD"
+        },
+        {
+            "reference": "Patient/cc-pat-pnoelle",
+            "display": "Patricia Noelle"
+        }
+    ],
+    "description": "Patricia Noelle - Personal Advance Care Plan",
+    "content": [
+        {
+            "attachment": {
+                "contentType": "text/plain",
+                "url": "/Binary/1-note",
+                "title": "Uri where the data can be found: [base]/Binary/1-note"
+            },
+            "format": {
+                "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+                "code": "urn:ihe:pcc:cm:2008",
+                "display": "Care Management (CM)"
+            }
+        }
+    ],
+    "context": {
+        "period": {
+            "start": "2004-12-23T08:00:00+11:00",
+            "end": "2004-12-23T08:01:00+11:00"
+        }
+    },
+    "_id": "MsemXEizLiwMuRtDd"
+}

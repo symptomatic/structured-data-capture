@@ -27,7 +27,8 @@ import moment from 'moment';
 // import ReactMixin from 'react-mixin';
 import PropTypes from 'prop-types';
 
-import { useTracker, Questionnaires } from 'meteor/clinical:hl7-fhir-data-infrastructure';
+import { Questionnaires } from 'meteor/clinical:hl7-fhir-data-infrastructure';
+import { useTracker } from 'meteor/react-meteor-data';
 
 import { Session } from 'meteor/session';
 import {
