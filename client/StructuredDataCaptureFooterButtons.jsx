@@ -75,7 +75,7 @@ import {
   }));
 
 
-
+Session.setDefault('SurveyPage.expandedPanels', false)    
 
 
 
@@ -159,6 +159,12 @@ export function SurveyButtons(props){
     return Session.get('draftQuestionnaireResponse')
   }, []);
 
+  function toggleFormExpansion(){
+    console.log('toggleFormExpansion');
+
+    Session.toggle('SurveyPage.expandedPanels')    
+  }
+
   function postQuestionnaireResponse(){
     let responseTemplate = {
       "resourceType": "QuestionnaireResponse",
@@ -184,9 +190,6 @@ export function SurveyButtons(props){
       },
       "item": [] 
     }
-
-
-
 
     let questionnaireResponseUrl = "";
     if(get(Meteor, 'settings.public.interfaces.relay.channel.endpoint')){
@@ -219,6 +222,9 @@ export function SurveyButtons(props){
     <div>
       <Button className={buttonClasses.west_button} onClick={ postQuestionnaireResponse.bind(this) } >
         Return Survey
+      </Button>
+      <Button className={buttonClasses.east_button} onClick={ toggleFormExpansion.bind(this) } >
+        Expand / Collapse
       </Button>
     </div>
   );

@@ -136,30 +136,8 @@
         }
       ],
       "text": "Date of Birth",
-      "type": "string",
-      "required": true,
-      "item": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ],
-          "linkId": "990063069213_helpText",
-          "text": "format: yyyy-mm-dd",
-          "type": "display"
-        }
-      ]
+      "type": "date",
+      "required": true
     },
     {
       "linkId": "717842501763",
