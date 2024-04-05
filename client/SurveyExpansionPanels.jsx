@@ -5,6 +5,7 @@ import {
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
+  ExpansionPanelActions,
   List,
   ListItem,
   ListItemIcon,
@@ -17,12 +18,17 @@ import {
   FormControlLabel,
   Typography,
   Checkbox,
-  TextField
+  TextField,
+  Icon,
+  CardContent,
+  Box
 } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
-import { get, has, uniq, compact, cloneDeep } from 'lodash';
+import { get, has, uniq, compact, cloneDeep, inRange } from 'lodash';
 import moment from 'moment';
+
+import { DynamicSpacer, FhirUtilities, PageCanvas, StyledCard } from 'fhir-starter';
 
 // import { ReactMeteorData, useTracker } from 'meteor/react-meteor-data';
 // import ReactMixin from 'react-mixin';
@@ -38,6 +44,9 @@ import {
   arrayMove,
 } from 'react-sortable-hoc';
 
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 let defaultQuestionnaire = {
   "resourceType" : "Questionnaire"
@@ -46,22 +55,27 @@ let defaultQuestionnaire = {
 // icons
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import { Icon } from 'react-icons-kit'
+// import { Icon } from 'react-icons-kit'
 import { ic_reorder } from 'react-icons-kit/md/ic_reorder'
 
 
 //===========================================================================
 // THEMING
 
-let sortableItemStyle = {
-  fontSize: '18px', 
-  width: '100%',
-  listStyleType: 'none',
-  padding: '10px',
-  margin: '10px',
-  borderBottom: '1px solid lightgray'
-}
 
+// // A style sheet
+const useStyles = makeStyles({
+  'MuiExpansionPanel-root': {
+    '&:before': {
+      backgroundColor: 'rgba(0,0,0,0)'
+    }
+  },
+  'root': {
+    '&:before': {
+      backgroundColor: 'rgba(0,0,0,0)'
+    }
+  }
+});
 
 
 let responseTemplate = {
@@ -105,9 +119,9 @@ Session.setDefault('sortableItems', []);
 // prop that is used by the `Button` component.
 const StyledExpansionPanel = withStyles({
   root: {
-    '&$before': {
-      backgroundColor: 'none'
-    }    
+    '&:before': {
+      backgroundColor: 'rgba(0,0,0,0)'
+    }
   }
 })(ExpansionPanel);
 
@@ -117,17 +131,21 @@ const StyledExpansionPanel = withStyles({
 
 function SurveyExpansionPanels(props){
 
+  const classes = useStyles(props);
+
   let { 
     children, 
     selectedQuestionnaire,
     selectedQuestionnaireId,
+    selectedQuestionnaireResponse,
+    selectedQuestionnaireResponseId,
     sortableItems,
     ...otherProps 
   } = props;
 
   let [draftResponse, setDraftResponse] = useState(responseTemplate);
   let [checkboxChecked, setCheckbox] = useState({item: [{answer: []}, {answer: []}, {answer: []}, {answer: []}, {answer: []}]});
-
+  let [orderOfItems, setOrderOfItems] = useState([]);
 
   // ================================================================================
   // Startup
@@ -174,9 +192,20 @@ function SurveyExpansionPanels(props){
   //   }
   // }, [props.lastUpdated])
 
-  // useEffect(function(){
-  //   console.log('draftResponse[lastUpdated]', draftResponse)
-  // }, [props.lastUpdated])
+  useEffect(function(){
+    // console.log('draftResponse[lastUpdated]', draftResponse);
+
+    // if(selectedQuestionnaire){
+    //   let orderOfItems = [];
+    //   if(Array.isArray(selectedQuestionnaire.item)){
+    //     selectedQuestionnaire.item.forEach(function(item){
+    //       orderOfItems.push(item.linkId);
+    //     })
+    //   }
+    // }
+    // setOrderOfItems(orderOfItems);
+
+  }, [])
 
   // ================================================================================
   // Trackers
@@ -188,6 +217,10 @@ function SurveyExpansionPanels(props){
 
   let expandedPanels = useTracker(function(){
     return Session.get('SurveyPage.expandedPanels')    
+  }, [])
+
+  let showExplanation = useTracker(function(){
+    return Session.get('SurveyPage.showExplanation')
   }, [])
 
 
@@ -208,7 +241,7 @@ function SurveyExpansionPanels(props){
       marginRight: '20px'
     },
     expansionPanel: {
-      backgroundColor: 'none'
+      backgroundColor: 'rgba(0,0,0,0) !important'
       //marginRight: '40px'
     },
     summary: {
@@ -220,7 +253,7 @@ function SurveyExpansionPanels(props){
   }
 
   if(!expandedPanels){
-    styles.expansionPanel.borderBottom = '0px solid lightgray'
+    // styles.expansionPanel.borderBottom = '0px solid lightgray'
   }
 
   let noWrap = false;
@@ -338,12 +371,29 @@ function SurveyExpansionPanels(props){
             optionIsChecked = true;
           }       
 
+          let answers = get(currentQuestion, 'answer', []);
+          let explanationElements = [];
+          if(Array.isArray(answers)){
+            answers.forEach(function(answer){
+              if(get(answer, 'valueCoding.code') === get(option, 'valueCoding.code')){
+                // explanationElements.push(<Typography>{get(answer, 'valueCoding.display')}</Typography>)
+                explanationElements.push(<DynamicSpacer />)
+                explanationElements.push(<Box sx={{bgcolor: 'aliceblue', width: '100%'  }}>
+                  <CardContent>
+                    { get(option, 'valueCoding.display') }
+                  </CardContent>
+                </Box>)
+              }
+            })
+          }
+
           answerChoices.push(<ListItem style={{paddingLeft: '120px'}} key={'answer-' + index}>
             <ListItemIcon>
               <Checkbox name="checkedDateRangeEnabled" checked={optionIsChecked} onChange={handleToggleItem.bind(this, get(currentQuestion, 'linkId'), get(option, 'valueCoding'))} />
             </ListItemIcon>
             <ListItemText>
               { get(option, 'valueCoding.display') }
+              { explanationElements }                
             </ListItemText>
           </ListItem>);
         })
@@ -366,7 +416,7 @@ function SurveyExpansionPanels(props){
     }
 
     console.log('queryPluckString', queryPluckString)
-    let currentQuestion = get(draftResponse, queryPluckString)
+    let currentQuestion = get(currentResponse, queryPluckString)
     console.log('currentQuestion', currentQuestion)
 
     if(currentQuestion){
@@ -374,31 +424,6 @@ function SurveyExpansionPanels(props){
       if(Array.isArray(currentQuestion.answerOption)){
 
         generateAnswerOptions(answerChoices, currentQuestion);
-
-        // // does this section element have answers?
-        // if(currentQuestion.answerOption.length > -1){
-        //   // for each answer we render, we are going to need to figure out 
-        //   // if the answer has been selected
-        //   currentQuestion.answerOption.forEach(function(option, index){
-
-        //     let optionIsChecked = false;
-
-        //     if(get(currentQuestion, 'answer[0].valueCoding.code') === get(option, 'valueCoding.code')){
-        //       optionIsChecked = true;
-        //     }          
-
-        //     // console.log('question.answerOptions.option', option, optionIsChecked)
-
-        //     answerChoices.push(<ListItem style={{paddingLeft: '120px'}} key={'answer-' + index}>
-        //       <ListItemIcon>
-        //         <Checkbox name="checkedDateRangeEnabled" checked={optionIsChecked} onChange={handleToggleItem.bind(this, get(currentQuestion, 'linkId'), get(option, 'valueCoding'))} />
-        //       </ListItemIcon>
-        //       <ListItemText>
-        //         { get(option, 'valueCoding.display') }
-        //       </ListItemText>
-        //     </ListItem>);
-        //   })
-        // }
 
       } else {
 
@@ -415,6 +440,23 @@ function SurveyExpansionPanels(props){
     return answerChoices;
   }
 
+  function clearField(renderItem){
+    console.log('clearField', renderItem)
+
+  }
+  function parseMultipleChoice(renderItem){
+    console.log('parseMultipleChoice')
+
+    console.log('textNormalForm', textNormalForm);
+    console.log('renderItem', renderItem);
+    console.log('renderItem.answer.0.valueString', get(renderItem, 'answer.0.valueString'));
+
+
+
+    
+  }
+
+
   // Forms with Functional React Components
   // Pros:  React internal state works really well
   // Cons:  FHIR QuestionnaireResponses store answers in arrays
@@ -424,107 +466,177 @@ function SurveyExpansionPanels(props){
   // do we have question items to display in expansion panels
   console.log('===========================================================================================')
   console.log('SurveyExpansionPanels.selectedQuestionnaire', selectedQuestionnaire)
+  console.log('SurveyExpansionPanels.selectedQuestionnaireResponse', selectedQuestionnaireResponse)
   console.log('SurveyExpansionPanels.draftResponse (pre main render)', draftResponse)
 
-  
 
-  if(draftResponse){
-    if(Array.isArray(draftResponse.item)){
-      draftResponse.item.forEach(function(renderItem, renderItemIndex){
-        // console.log('renderItem', renderItem)
-  
-        let answerChoices = [];
-        
-        // are we starting with section headers or actual questions
-        // looks like we have actual questions
-        if(Array.isArray(renderItem.answerOption)){
-          answerChoices = parseQuestion(renderItemIndex, -1);
-  
-          questionPanels.push(<StyledExpansionPanel expanded={expandedPanels} style={styles.expansionPanel} classes={{ root: 'ExpansionPanel' }} key={'expansionPanel-topLevel-' + renderItemIndex}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"}  style={styles.summary} >
-              {/* <Typography className="measure-identifier" style={styles.identifier}>{get(renderItem, 'linkId', renderItemIndex)}</Typography>               */}
-              <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
-                {get(renderItem, 'text')}
-              </Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className="measure-details" style={{display: 'block'}}>
-              <List>
-                { answerChoices }
-              </List>
-            </ExpansionPanelDetails>
-          </StyledExpansionPanel>)   
-  
-        } else {
-          // section titles
-          console.log('SurveyExpansionPanels.sectionTitle', get(renderItem, 'text'))
+  let currentResponse = draftResponse;
+  if(selectedQuestionnaireResponse){
+    currentResponse = selectedQuestionnaireResponse;
+  }
 
-          switch (get(renderItem, 'type')) {
-            case "date":
-              questionPanels.push(<StyledExpansionPanel expanded={expandedPanels} style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
-                  <TextField
-                    id="standard-basic"
-                    label={get(renderItem, 'text')}
-                    style={{marginLeft: 'auto'}}
-                    defaultValue={new Date()}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    type="date"
-                    fullWidth
-                  />
-                </ExpansionPanelSummary>            
-              </StyledExpansionPanel>)                     
-              break; 
-            case "string":
-              questionPanels.push(<StyledExpansionPanel expanded={expandedPanels} style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
-                  <TextField
-                    id="standard-basic"
-                    label={get(renderItem, 'text')}
-                    style={{marginLeft: 'auto'}}
-                    fullWidth
-                  />
-                </ExpansionPanelSummary>            
-              </StyledExpansionPanel>)                     
-              break;          
-            default:
-              questionPanels.push(<StyledExpansionPanel expanded={expandedPanels} style={styles.expansionPanel} key={'expansionPanel-topLevel-' + renderItemIndex}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
-                  <TextField
-                    id="standard-basic"
-                    label={get(renderItem, 'text')}
-                    style={{marginLeft: 'auto'}}
-                    fullWidth
-                  />
-                </ExpansionPanelSummary>            
-              </StyledExpansionPanel>)       
-            break;
-          }          
-        } 
-        
-        if (Array.isArray(renderItem.item)){
+  if(currentResponse){
+    if(Array.isArray(currentResponse.item)){
 
-          // no answers options available, so assume we have section headers
-          renderItem.item.forEach(function(question, questionIndex){
-            console.log('SurveyExpansionPanels.renderItem.question', question);
+
+
+      currentResponse.item.forEach(function(renderItem, renderItemIndex){
+        if(renderItem){
+          // console.log('renderItem', renderItem)
+  
+          let answerChoices = [];
+          
+          let linkIdElement;
+          // if(expandedPanels){
+          //   linkIdElement = <div class="barcode barcodes" style={{ animation: "fadeIn 5s" }}>
+          //     {get(renderItem, 'linkId')}
+          //   </div>
+          // }
+          
+          // are we starting with section headers or actual questions
+          // looks like we have actual questions
+          if(Array.isArray(renderItem.answerOption)){
+            answerChoices = parseQuestion(renderItemIndex, -1);
+    
+            questionPanels.push(<StyledExpansionPanel className={classes.MuiExpansionPanel} expanded={expandedPanels} classes={{ root: 'ExpansionPanel' }} key={'expansionPanel-topLevel-' + renderItemIndex}>
+              {linkIdElement}
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"}  style={styles.summary} >
+                <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
+                  {get(renderItem, 'text')}
+                </Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails className="measure-details" style={{display: 'block'}}>
+                <List>
+                  { answerChoices }
+                </List>
+                <DynamicSpacer />
+                {/* { get(renderItem, 'answer.0.valueString') ? <Typography>{get(renderItem, 'answer.0.valueString')}</Typography> : null } */}
+                <DynamicSpacer />
+                <Box sx={{bgcolor: '#eeeeee', width: '100%'  }}>
+                  <CardContent>
+                    <TextField
+                      id="standard-basic"
+                      label={get(renderItem, 'linkId')}
+                      sx={{marginLeft: '20px'}}
+                      value={get(renderItem, 'answer.0.valueString', '')}
+                      multiline={true}
+                      fullWidth
+                    />   
+                  </CardContent>
+                </Box>
+              </ExpansionPanelDetails>
+              <ExpansionPanelActions>
+              <Button startIcon={<FormatListBulletedIcon />}style={{float: 'right'}} onClick={parseMultipleChoice.bind(this, renderItem)}>Parse Multiple Choice</Button>
+                <Button startIcon={<CheckIcon />} >Accept</Button>
+                <Button startIcon={<ClearIcon />} onClick={clearField.bind(this, renderItem)} >Clear</Button>
+              </ExpansionPanelActions>         
+            </StyledExpansionPanel>)   
+    
+    
+
+          } else {
+            // section titles
+            console.log('SurveyExpansionPanels.sectionTitle', get(renderItem, 'text'))
             
-              answerChoices = parseQuestion(renderItemIndex, questionIndex);
-              questionPanels.push(<StyledExpansionPanel expanded={expandedPanels} style={styles.expansionPanel} key={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-content'} id={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-header'} style={styles.summary}  >
-                  {/* <Typography className="measure-identifier" style={styles.identifier}>{get(question, 'linkId', questionIndex)}</Typography> */}
-                  <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
-                    {get(question, 'text')}
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails className="measure-details" style={{display: 'block'}}>
-                  <List>
-                    { answerChoices }
-                  </List>
-                </ExpansionPanelDetails>
-              </StyledExpansionPanel>)  
-          })
-        }                
+            switch (get(renderItem, 'type')) {
+              case "date":
+                questionPanels.push(<StyledExpansionPanel className={classes.MuiExpansionPanel} expanded={expandedPanels} key={'expansionPanel-topLevel-' + renderItemIndex}>
+                  {linkIdElement}
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
+                    <TextField
+                      id="standard-basic"
+                      label={get(renderItem, 'text')}
+                      style={{marginLeft: '20px'}}
+                      value={get(renderItem, 'answer.0.valueString', new Date())}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      type="date"
+                      fullWidth
+                    />
+                  </ExpansionPanelSummary>   
+                  <ExpansionPanelActions>
+                  <Button startIcon={<CheckIcon />} >Accept</Button>
+                    <Button startIcon={<ClearIcon />} >Clear</Button>
+                  </ExpansionPanelActions>                  
+                </StyledExpansionPanel>)                     
+                break; 
+              case "string":
+                questionPanels.push(<StyledExpansionPanel className={classes.MuiExpansionPanel} expanded={expandedPanels} key={'expansionPanel-topLevel-' + renderItemIndex}>
+                  {linkIdElement}
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
+                    <TextField
+                      id="standard-basic"
+                      label={get(renderItem, 'text')}
+                      style={{marginLeft: '20px'}}
+                      value={get(renderItem, 'answer.0.valueString', '')}
+                      fullWidth
+                    />
+                  </ExpansionPanelSummary>   
+                  <ExpansionPanelActions>
+                  <Button startIcon={<CheckIcon />} >Accept</Button>
+                    <Button startIcon={<ClearIcon />} >Clear</Button>
+                  </ExpansionPanelActions>         
+                </StyledExpansionPanel>)                     
+                break;          
+              default:
+                questionPanels.push(<StyledExpansionPanel className={classes.MuiExpansionPanel} expanded={expandedPanels} key={'expansionPanel-topLevel-' + renderItemIndex}>
+                  {linkIdElement}
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-topLevel-' + renderItemIndex + "-content"} id={'expansionPanel-topLevel-' + renderItemIndex + "-header"} style={styles.summary}  >
+                    <TextField
+                      id="standard-basic"
+                      label={get(renderItem, 'text')}
+                      style={{marginLeft: '20px'}}
+                      value={get(renderItem, 'answer.0.valueString', '')}
+                      fullWidth
+                    />
+                  </ExpansionPanelSummary>            
+                  <ExpansionPanelActions>
+                    <Button startIcon={<CheckIcon />} >Accept</Button>
+                    <Button startIcon={<ClearIcon />} >Clear</Button>
+                  </ExpansionPanelActions>         
+                </StyledExpansionPanel>)       
+              break;
+            }          
+          } 
+          
+          if (Array.isArray(renderItem.item)){
+
+            // no answers options available, so assume we have section headers
+            renderItem.item.forEach(function(question, questionIndex){
+              console.log('SurveyExpansionPanels.renderItem.question', question);
+              
+                answerChoices = parseQuestion(renderItemIndex, questionIndex);
+                questionPanels.push(<StyledExpansionPanel classes={{ root: 'MuiExpansionPanel'}} className={{root: "MuiExpansionPanel"}} expanded={expandedPanels} style={styles.expansionPanel} key={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-content'} id={'expansionPanel-question-' + renderItemIndex + '-' + questionIndex + '-header'} style={styles.summary}  >
+                    {/* <Typography className="measure-identifier" style={styles.identifier}>{get(question, 'linkId', questionIndex)}</Typography> */}
+                    <Typography className="measure-description" style={styles.description} noWrap={noWrap}>
+                      {get(question, 'text')}
+                    </Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails className="measure-details" style={{display: 'block'}}>
+                    <List>
+                      { answerChoices }
+                    </List>
+                    <DynamicSpacer />
+                    <Box sx={{bgcolor: '#eeeeee', width: '100%'  }}>
+                      <CardContent>
+                        <TextField
+                          id="standard-basic"
+                          label={get(renderItem, 'linkId')}
+                          sx={{marginLeft: '20px'}}
+                          value={get(renderItem, 'answer.0.valueString', '')}
+                          multiline={true}
+                          fullWidth
+                        />  
+                      </CardContent> 
+                    </Box>
+
+                  </ExpansionPanelDetails>
+                </StyledExpansionPanel>)  
+            })
+          }    
+        }            
       });  
     }  
   }  
@@ -541,12 +653,15 @@ function SurveyExpansionPanels(props){
 SurveyExpansionPanels.propTypes = {
   selectedQuestionnaire: PropTypes.object,
   selectedQuestionnaireId: PropTypes.string,
+  selectedQuestionnaireResponse: PropTypes.object,
+  selectedQuestionnaireResponseId: PropTypes.string,
   sortableItems: PropTypes.array,
   autoExpand: PropTypes.bool
 };
 
 SurveyExpansionPanels.defaultProps = {
   selectedQuestionnaire: null,
+  selectedQuestionnaireResponse: null,
   autoExpand: null
 }
 

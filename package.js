@@ -1,6 +1,6 @@
 Package.describe({
   name: 'symptomatic:structured-data-capture',
-  version: '0.6.2',
+  version: '0.6.3',
   summary: 'Structured Document Capture',
   git: 'https://github.com/symptomatic/gravity',
   documentation: 'README.md'
@@ -23,7 +23,6 @@ Package.onUse(function(api) {
   api.addFiles('lib/Collections.js');
 
   api.addFiles('server/methods.js');
-
   
   api.use('clinical:uscore');
   api.use('clinical:vault-server');
@@ -37,6 +36,10 @@ Package.onUse(function(api) {
 
 
 Npm.depends({
-  "react-sortable-hoc": "1.11.0"
+  "react-sortable-hoc": "1.11.0",
+  "@mui/icons-material": "5.15.13",
+  "@mui/material": "5.15.13",
+  "@emotion/react": "11.11.1",
+  "@emotion/styled": "11.11.0" 
 });
 

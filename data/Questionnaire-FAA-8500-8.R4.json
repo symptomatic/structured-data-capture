@@ -18,28 +18,6 @@
   ],
   "item": [
     {
-      "item": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ],
-          "linkId": "19264175569_helpText",
-          "text": "The class of medical certificate sought by the applicant is needed so that the appropriate medical standards may be applied. The class of certificate issued must correspond with that for which the applicant has applied.",
-          "type": "display"
-        }
-      ],
       "type": "string",
       "linkId": "19264175569",
       "code": [
@@ -50,7 +28,23 @@
         }
       ],
       "text": "Application for",
-      "required": true
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "form8500-8",
+            "code": "amc",
+            "display": "Airman Medical Certificate"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "form8500-8",
+            "code": "amspc",
+            "display": "Airman Medical Student Pilot Certificate"
+          }
+        }
+      ]
     },
     {
       "linkId": "7270595484463",
@@ -63,7 +57,30 @@
       ],
       "text": "Class of medical certificate",
       "type": "string",
-      "required": true
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "form8500-8",
+            "code": "1",
+            "display": "1st"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "form8500-8",
+            "code": "2",
+            "display": "2nd"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "form8500-8",
+            "code": "3",
+            "display": "3rd"
+          }
+        }
+      ]
     },
     {
       "linkId": "2898049029846",
@@ -136,8 +153,9 @@
         }
       ],
       "text": "Date of Birth",
-      "type": "date",
+      "type": "string",
       "required": true
+      
     },
     {
       "linkId": "717842501763",
@@ -193,53 +211,9 @@
             "display": "bald"
           }
         }
-      ],
-      "item": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ],
-          "linkId": "717842501763_helpText",
-          "text": "Color of hair should be entered as brown, black, blonde, gray, or red. Lack of hair should be entered as bald. No abbreviations or other colors should be used.",
-          "type": "display"
-        }
       ]
     },
     {
-      "item": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ],
-          "linkId": "8636877002143_helpText",
-          "text": "This should reflect the applicant's major employment. \"Pilot\" should only be reported when the applicant earns a livelihood from flying.",
-          "type": "display"
-        }
-      ],
       "type": "choice",
       "linkId": "8636877002143",
       "code": [
@@ -307,28 +281,6 @@
       ]
     },
     {
-      "item": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ],
-          "linkId": "8320245194140_helpText",
-          "text": "If \"yes\" is checked, the applicant should enter the date of action and should report details in the EXPLANATIONS box",
-          "type": "display"
-        }
-      ],
       "type": "string",
       "linkId": "8320245194140",
       "code": [
@@ -401,28 +353,6 @@
       ]
     },
     {
-      "item": [
-        {
-          "text": "The applicant should provide the number of civilian flight hours in the 6-month period immediately preceding the date of this application. The applicant should indicate whether those hours are logged (LOG) or estimated (EST).",
-          "type": "display",
-          "linkId": "5125604165611_helpText",
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "text": "Help-Button",
-                "coding": [
-                  {
-                    "code": "help",
-                    "display": "Help-Button",
-                    "system": "http://hl7.org/fhir/questionnaire-item-control"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ],
       "type": "integer",
       "extension": [
         {
@@ -445,28 +375,6 @@
       "text": "Total Pilot Time Past 6 Months"
     },
     {
-      "item": [
-        {
-          "text": "If a prior application was made, the applicant should indicate the date of the last application, even if it is only an estimate of the year. This item should be completed even if the application was made many years ago or the previous application did not result in the issuance of a medical certificate. If no prior application was made, the applicant should check the appropriate block in Item 16.",
-          "type": "display",
-          "linkId": "3625615065757_helpText",
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "text": "Help-Button",
-                "coding": [
-                  {
-                    "code": "help",
-                    "display": "Help-Button",
-                    "system": "http://hl7.org/fhir/questionnaire-item-control"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ],
       "type": "date",
       "linkId": "3625615065757",
       "code": [
@@ -478,29 +386,7 @@
       ],
       "text": "Date of Last FAA Medical Application"
     },
-    {
-      "item": [
-        {
-          "text": "If the applicant checks yes, give name of medication(s) and indicate if the medication was listed in a previous FAA medical examination.",
-          "type": "display",
-          "linkId": "3764621580219_helpText",
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "text": "Help-Button",
-                "coding": [
-                  {
-                    "code": "help",
-                    "display": "Help-Button",
-                    "system": "http://hl7.org/fhir/questionnaire-item-control"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ],
+    {      
       "type": "choice",
       "linkId": "3764621580219",
       "code": [
@@ -527,29 +413,7 @@
         }
       ]
     },
-    {
-      "item": [
-        {
-          "text": "If the applicant checks yes to question 17a, give name of medication(s) and indicate if the medication was listed in a previous FAA medical examination.",
-          "type": "display",
-          "linkId": "282204433287_helpText",
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "text": "Help-Button",
-                "coding": [
-                  {
-                    "code": "help",
-                    "display": "Help-Button",
-                    "system": "http://hl7.org/fhir/questionnaire-item-control"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ],
+    {      
       "type": "string",
       "linkId": "282204433287",
       "code": [
@@ -571,6 +435,123 @@
         }
       ],
       "repeats": true
+    },
+    {      
+      "type": "choice",
+      "linkId": "2164571589013",
+      "code": [
+        {
+          "system": "https://www.faa.gov/pilots/medical_certification",
+          "code": "18",
+          "display": "Have you ever in your life been diagnosed with, had, or do you presently have any of the following?"
+        }
+      ],
+      "text": "Have you ever in your life been diagnosed with, had, or do you presently have any of the following?",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "a",
+            "display": "Frequent or severe headaches"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "b",
+            "display": "Dizziness or fainting spell"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "c",
+            "display": "Unconsciousness for any reason"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "d",
+            "display": "Eye or vision trouble except glasses"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "e",
+            "display": "Hay fever or allergy"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "f",
+            "display": "Asthma or lung disease"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "g",
+            "display": "Heart or vascular trouble"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "h",
+            "display": "High or low blood pressure"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "i",
+            "display": "Stomach, liver, or intestinal trouble"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "j",
+            "display": "Kidney stone or blood in urine"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "k",
+            "display": "Diabetes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "l",
+            "display": "Neurlogical disorders; epilepsy, seizures, stroke, paralysis, etc"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "m",
+            "display": "Mental disorders of any sort; depression, anxiety, etc"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "n",
+            "display": "Substance dependence or failed a drug test ever; or substance abuse or use of illegal substance in the last 2 years."
+          }          
+        },
+        {
+          "valueCoding": {
+            "code": "o",
+            "display": "Alcohol dependence or abuse"
+          }          
+        },
+        {
+          "valueCoding": {
+            "code": "p",
+            "display": "Suicide attempt"
+          }          
+        },
+        {
+          "valueCoding": {
+            "code": "q",
+            "display": "Motion sickness requiring medication"
+          }          
+        }
+      ]
     }
   ]
 }

@@ -21,11 +21,13 @@ import { StyledCard, PageCanvas, FhirUtilities } from 'fhir-starter';
 import SurveyExpansionPanels from './SurveyExpansionPanels';
 // import SortableQuestionnaire from './SortableQuestionnaire';
 
+
+
 import {LayoutHelpers, QuestionnairesTable, DynamicSpacer} from 'meteor/clinical:hl7-fhir-data-infrastructure';
 
 import PropTypes from 'prop-types';
-import React from 'react';
-import { ReactMeteorData, useTracker } from 'meteor/react-meteor-data';
+import React, { useEffect } from 'react';
+import { useTracker } from 'meteor/react-meteor-data';
 
 import { Session } from 'meteor/session';
 import { Random } from 'meteor/random';
@@ -225,6 +227,14 @@ export function SurveyPage(props){
     return Session.get('selectedQuestionnaire');
   }, [])
 
+  data.selectedQuestionnaireResponseId = useTracker(function(){
+    return Session.get('selectedQuestionnaireResponseId');
+  }, [])
+
+  data.selectedQuestionnaireResponse = useTracker(function(){
+    return Session.get('selectedQuestionnaireResponse');
+  }, [])
+
   data.questionnaires = useTracker(function(){
     return Questionnaires.find().fetch();
   }, [])
@@ -242,7 +252,13 @@ export function SurveyPage(props){
     return CarePlans.findOne(FhirUtilities.addPatientFilterToQuery(get(Session.get('selectedPatient'), 'id'))); 
   });
 
-
+  useEffect(function(){
+    // read url, get questionnaire id, and set it in the session
+    if(props.match && props.match.params && props.match.params.id){
+      Session.set('selectedQuestionnaireId', props.match.params.id);
+      Session.set('selectedQuestionnaire', Questionnaires.findOne({_id: props.match.params.id})); 
+    }
+  }, [])
 
 
   if (get(data, 'selectedQuestionnaire')) {
@@ -587,7 +603,7 @@ export function SurveyPage(props){
                       id="publisherInput"
                       name="publisherInput"
                       style={classes.input}
-                      value={ get(data, 'selectedQuestionnaire.title', '') }
+                      value={ get(data, 'selectedQuestionnaireResponse.title', '') }
                       onChange={  changeText.bind(this, 'title')}
                       fullWidth              
                     />       
@@ -617,25 +633,11 @@ export function SurveyPage(props){
                           id="statusInput"
                           name="statusInput"
                           style={classes.input}
-                          value={ get(data, 'selectedQuestionnaire.status', '') }
+                          value={ get(data, 'selectedQuestionnaireResponse.status', '') }
                           fullWidth              
                         />       
                       </FormControl>    
                     </Grid>
-                    {/* <Grid item md={6} >
-                      <FormControl style={{width: '100%', marginTop: '20px'}}>
-                        <InputAdornment 
-                          style={classes.label}
-                        >Identifier</InputAdornment>
-                        <Input
-                          id="identifierInput"
-                          name="identifierInput"
-                          style={classes.input}
-                          value={ get(data, 'selectedQuestionnaire.identifier.value', '') }
-                          fullWidth              
-                        />       
-                      </FormControl>    
-                    </Grid> */}
                   </Grid>
                 </CardContent>
               </StyledCard>
@@ -644,8 +646,10 @@ export function SurveyPage(props){
 
               <SurveyExpansionPanels 
                 id='questionnaireDetails' 
-                selectedQuestionnaire={ data.selectedQuestionnaire} 
-                selectedQuestionnaireId={ data.selectedQuestionnaireId}
+                selectedQuestionnaire={ get(data, "selectedQuestionnaire")} 
+                selectedQuestionnaireId={ get(data, "selectedQuestionnaireId")}
+                selectedQuestionnaireResponse={ get(data, "selectedQuestionnaireResponse") } 
+                selectedQuestionnaireResponseId={ get(data, "selectedQuestionnaireResponseId") }
                 autoExpand={true}
                 />
 

@@ -20,6 +20,10 @@ let DynamicRoutes = [{
   'name': 'SurveyPage',
   'path': '/survey',
   'component': SurveyPage
+}, {
+  'name': 'SurveyPage',
+  'path': '/survey/:id',
+  'component': SurveyPage
 }];
 
 

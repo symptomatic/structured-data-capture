@@ -71,12 +71,21 @@ import {
       right: '20px',
       marginTop: '15px',
       position: 'absolute'
+    },
+    east_button_200: {
+      cursor: 'pointer',
+      justifyContent: 'left',
+      color: theme.palette.appBar.contrastText,
+      right: '200px',
+      marginTop: '15px',
+      position: 'absolute'
     }
+
   }));
 
 
-Session.setDefault('SurveyPage.expandedPanels', false)    
-
+Session.setDefault('SurveyPage.expandedPanels', false)  
+Session.setDefault('SurveyPage.showExplanation', false)  
 
 
 //============================================================================================================================
@@ -164,6 +173,10 @@ export function SurveyButtons(props){
 
     Session.toggle('SurveyPage.expandedPanels')    
   }
+  function toggleExplain(){
+    Session.toggle('SurveyPage.showExplanation')    
+
+  }
 
   function postQuestionnaireResponse(){
     let responseTemplate = {
@@ -225,6 +238,9 @@ export function SurveyButtons(props){
       </Button>
       <Button className={buttonClasses.east_button} onClick={ toggleFormExpansion.bind(this) } >
         Expand / Collapse
+      </Button>
+      <Button className={buttonClasses.east_button_200} onClick={ toggleExplain.bind(this) } >
+        Explain
       </Button>
     </div>
   );
@@ -334,6 +350,11 @@ export function QuestionnaireResponsesButtons(props){
     Meteor.call('clearQuestoinnaireResponses')
     // QuestionnaireResponses.remove({});
   }
+  function reviewSurvey(){
+    // alert('selectedQuestionnaireResponseId: ' + Session.get('selectedQuestionnaireResponseId'))
+    props.history.replace('/survey/' + Session.get('selectedQuestionnaireResponseId'));
+  }
+
   function initializeSampleQuestionnaireResponses(){
     console.log('Initializing Sample QuestionnaireResponses!');
 
@@ -377,6 +398,9 @@ export function QuestionnaireResponsesButtons(props){
       </Button>
       <Button className={buttonClasses.west_button} onClick={ toggleLayout.bind(this) } >
         Toggle Layout Screen
+      </Button>
+      <Button className={buttonClasses.east_button} onClick={ reviewSurvey } >
+        Review Autocompleted Survey
       </Button>
     </div>
   );
