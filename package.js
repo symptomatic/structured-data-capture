@@ -39,6 +39,8 @@ Npm.depends({
   "react-sortable-hoc": "1.11.0",
   "@mui/icons-material": "5.15.13",
   "@mui/material": "5.15.13",
-  "@emotion/styled": "11.11.0" 
+  "@emotion/styled": "11.11.0",
+  "tree-walk": "0.4.0",
+  "react-accessible-treeview": "2.9.0"
 });
 

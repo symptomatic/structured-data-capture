@@ -67,6 +67,7 @@ Session.setDefault('activeQuestionnaireName', 'bar');
 Session.setDefault('activeQuestionLinkId', false);
 
 Session.setDefault('selectedQuestionnaireId', '')
+Session.setDefault('surveyLastUpdated', new Date())
 
 //===============================================================================================================
 // Global Theming 
@@ -257,6 +258,11 @@ export function SurveyPage(props){
     if(props.match && props.match.params && props.match.params.id){
       Session.set('selectedQuestionnaireId', props.match.params.id);
       Session.set('selectedQuestionnaire', Questionnaires.findOne({_id: props.match.params.id})); 
+    } else {
+      Session.set('selectedQuestionnaireId', get(Meteor, 'settings.public.modules.structuredDataCapture.defaultQuestionnaireId', ''));
+      Session.set('selectedQuestionnaire', Questionnaires.findOne({id: get(Meteor, 'settings.public.modules.structuredDataCapture.defaultQuestionnaireId', '')}));
+      Session.set('selectedQuestionnaireResponseId', get(Meteor, 'settings.public.modules.structuredDataCapture.defaultQuestionnaireResponseId', ''));
+      Session.set('selectedQuestionnaireResponse', QuestionnaireResponses.findOne({id: get(Meteor, 'settings.public.modules.structuredDataCapture.defaultQuestionnaireResponseId', '')}));  
     }
   }, [])
 
@@ -420,131 +426,36 @@ export function SurveyPage(props){
     console.log('newQuestionState', newQuestionState)
   }
   function handleSaveQuestionnaireResponse(){
+    
+    console.log('Sending questionnaire to external system...')
 
-    // let newQuestionnaireResponse = {
-    //   "resourceType": "QuestionnaireResponse",
-    //   "meta": {
-    //     "versionId": "1",
-    //     "lastUpdated": "2020-05-12T14:58:42.196+00:00",
-    //     "profile": [
-    //       "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
-    //     ]
-    //   },
-    //   "questionnaire": "Questionnaire/d2ff1d83-f772-448c-b5df-04b66b5ef0f2",
-    //   "status": "in-progress",
-    //   "authored": new Date(),
-    //   "subject": {
-    //     "reference": "Patient/" + Random.id(),
-    //     "type": "Patient"
-    //   },
-    //   "item": [{
-    //     "linkId": "/food",
-    //     "text": "Food",
-    //     "item": [{
-    //       "linkId": "/food/1",
-    //       "text": "Within the past 12 months, did you worry that your food would run out before you got money to buy more?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }, {
-    //       "linkId": "/food/2",
-    //       "text": "Within the past 12 months, did the food you bought just not last and you didn’t have money to get more?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }]
-    //   }, {
-    //     "linkId": "/housing/utilities",
-    //     "text": "Housing/Utilities",
-    //     "item": [{
-    //       "linkId": "/housing/utilities/3",
-    //       "text": "Within the past 12 months, have you ever stayed: outside, in a car, in a tent, in an overnight shelter, or temporarily in someone else’s home (i.e. couch-surfing)?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }, {
-    //       "linkId": "/housing/utilities/4",
-    //       "text": "Are you worried about losing your housing?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }, {
-    //       "linkId": "/housing/utilities/5",
-    //       "text": "Within the past 12 months, have you been unable to get utilities (heat, electricity) when it was really needed?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }]
-    //   }, {
-    //     "linkId": "/transportation",
-    //     "text": "Transportation",
-    //     "item": [{
-    //       "linkId": "/transportation/6",
-    //       "text": "Within the past 12 months, has a lack of transportation kept you from medical appointments or from doing things needed for daily living?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }]
-    //   },
-    //   {
-    //     "linkId": "/interpersonal safety",
-    //     "text": "Interpersonal Safety",
-    //     "item": [{
-    //       "linkId": "/interpersonal safety/7",
-    //       "text": "Do you feel physically or emotionally unsafe where you currently live?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }, {
-    //       "linkId": "/interpersonal safety/8",
-    //       "text": "Within the past 12 months, have you been hit, slapped, kicked or otherwise physically hurt by anyone?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }]
-    //   },
-    //   {
-    //     "linkId": "/optional: immediate need",
-    //     "text": "Optional: Immediate Need",
-    //     "item": [{
-    //       "linkId": "/optional: immediate need/10",
-    //       "text": "Are any of your needs urgent? For example, you don’t have food for tonight, you don’t have a place to sleep tonight, you are afraid you will get hurt if you go home today.",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }, {
-    //       "linkId": "/optional: immediate need/11",
-    //       "text": "Would you like help with any of the needs that you have identified?",
-    //       "answer": [{
-    //         "valueBoolean": Random.choice([true, false])
-    //       }]
-    //     }
-    //   ]}
-    // ]}
+    console.log("selectedQuestionnaireResponse",  get(data, "selectedQuestionnaireResponse"));
 
 
-    if(data.draftQuestionnaireResponse){
-      let newQuestionnaireResponse = data.draftQuestionnaireResponse;
 
-      set(newQuestionnaireResponse, 'subject', Meteor.currentUserReference())
-      set(newQuestionnaireResponse, 'author', Meteor.currentUserReference())
+    if(get(data, "selectedQuestionnaireResponse")){
+      // let newQuestionnaireResponse = data.draftQuestionnaireResponse;
 
-      console.log('Posting questionnaire response to external system...', newQuestionnaireResponse)
+      // set(newQuestionnaireResponse, 'subject', Meteor.currentUserReference())
+      // set(newQuestionnaireResponse, 'author', Meteor.currentUserReference())
+
+      // console.log('Posting questionnaire response to external system...', newQuestionnaireResponse)
   
       let relayUrl = get(Meteor, 'settings.public.interfaces.fhirRelay.channel.endpoint', 'http://localhost:3000/baseR4') + '/QuestionnaireResponse';
       console.log('SurveyPage.relayUrl', relayUrl)
   
       Meteor.call('postRelay', relayUrl, {
-        payload: newQuestionnaireResponse
+        payload: get(data, "selectedQuestionnaireResponse", {})
       }, function(error, response){
         if(error){
           console.log('error', error)
         }
         if(response){
           console.log('response', response)
+          alert('Success?')
         }
       })  
-      props.history.replace('/healthflow-home')
+      // props.history.replace('/healthflow-home')
     } else {
       alert('No questionnaire response yet.')
     }
@@ -589,7 +500,11 @@ export function SurveyPage(props){
   return (
     <PageCanvas id="questionnairesPage" headerHeight={headerHeight} paddingLeft={20} paddingRight={20} >
       <MuiThemeProvider theme={muiTheme} >
+
         <Grid container spacing={2} alignItems="center" alignContent="center" justify="center">
+          <Grid item xs={12} md={3} >
+
+          </Grid>
           <Grid item xs={12} md={6} >
             <Grid style={{position: 'sticky', top: '0px', margin: '20px', marginBottom: '84px'}}>
               <h1 className="barcode helveticas" style={{whiteSpace: 'nowrap'}}>{ data.selectedQuestionnaireId}</h1>
@@ -655,10 +570,14 @@ export function SurveyPage(props){
 
 
               <DynamicSpacer />
-              <Button id='saveAnswersButton' onClick={ handleSaveQuestionnaireResponse.bind(this)} color="primary" variant="contained" fullWidth>Submit Questionnaire Response (Hardcoded)</Button>
+              <Button id='saveAnswersButton' onClick={ handleSaveQuestionnaireResponse.bind(this)} color="primary" variant="contained" fullWidth>Submit Questionnaire Response</Button>
+              
 
             </Grid>
 
+          </Grid>
+          <Grid item xs={12} md={3} >
+            Last saved: 
           </Grid>
         </Grid>
       </MuiThemeProvider>         

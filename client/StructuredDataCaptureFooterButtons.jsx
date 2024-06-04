@@ -79,6 +79,14 @@ import {
       right: '200px',
       marginTop: '15px',
       position: 'absolute'
+    },
+    east_button_300: {
+      cursor: 'pointer',
+      justifyContent: 'left',
+      color: theme.palette.appBar.contrastText,
+      right: '300px',
+      marginTop: '15px',
+      position: 'absolute'
     }
 
   }));
@@ -173,6 +181,11 @@ export function SurveyButtons(props){
 
     Session.toggle('SurveyPage.expandedPanels')    
   }
+  function toggleBarcodes(){
+    console.log('toggleBarcodes');
+
+    Session.toggle('showBarcodes')
+  }
   function toggleExplain(){
     Session.toggle('SurveyPage.showExplanation')    
 
@@ -235,6 +248,9 @@ export function SurveyButtons(props){
     <div>
       <Button className={buttonClasses.west_button} onClick={ postQuestionnaireResponse.bind(this) } >
         Return Survey
+      </Button>
+      <Button className={buttonClasses.east_button_300} onClick={ toggleBarcodes.bind(this) } >
+        Barcodes
       </Button>
       <Button className={buttonClasses.east_button} onClick={ toggleFormExpansion.bind(this) } >
         Expand / Collapse
