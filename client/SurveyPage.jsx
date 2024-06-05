@@ -501,12 +501,12 @@ export function SurveyPage(props){
     <PageCanvas id="questionnairesPage" headerHeight={headerHeight} paddingLeft={20} paddingRight={20} >
       <MuiThemeProvider theme={muiTheme} >
 
-        <Grid container spacing={2} alignItems="center" alignContent="center" justify="center">
-          <Grid item xs={12} md={3} >
+        <Grid container spacing={2} alignItems="center" alignContent="center" justify="center" style={{width: '100%'}}>
+          <Grid item md={12} lg={3} >
 
           </Grid>
-          <Grid item xs={12} md={6} >
-            <Grid style={{position: 'sticky', top: '0px', margin: '20px', marginBottom: '84px'}}>
+          <Grid item md={12} lg={6} >
+            
               <h1 className="barcode helveticas" style={{whiteSpace: 'nowrap'}}>{ data.selectedQuestionnaireId}</h1>
               <StyledCard margins={20}>
                 <CardContent>
@@ -573,11 +573,10 @@ export function SurveyPage(props){
               <Button id='saveAnswersButton' onClick={ handleSaveQuestionnaireResponse.bind(this)} color="primary" variant="contained" fullWidth>Submit Questionnaire Response</Button>
               
 
-            </Grid>
 
           </Grid>
-          <Grid item xs={12} md={3} >
-            Last saved: 
+          <Grid item md={12} lg={3} >
+            <CardHeader subheader={"Last saved:" + moment().format("MMM DD, YYYY [at] h:mm:ss a")} />
           </Grid>
         </Grid>
       </MuiThemeProvider>         
